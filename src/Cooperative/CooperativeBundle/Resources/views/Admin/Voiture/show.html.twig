@@ -1,0 +1,82 @@
+{% extends '::layout_admin_cooperative.html.twig' %}
+
+{% block stylesheets -%}
+ <link rel="stylesheet" href="{{ asset('admin_assets/card-voiture.css') }}">
+ <style type="text/css">
+        .place-disponible, .place-selectionne
+        {
+            cursor: pointer;
+        }
+        .place-selectionne
+        {
+            color: #fff;
+        }
+    </style>
+{% endblock %}
+
+{% block body -%}
+
+<!-- Start Email Statistic area-->
+    <div class="notika-email-post-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <div class="contact-inner">
+                        <div class="contact-dt">
+                            <div class="contact-list">
+                                <div class="contact-ctn">
+                                    <div class="contact-ad-hd">
+                                        <h2>{{ entity.immatriculation }}</h2>
+                                        <p class="ctn-ads">{{ entity.nomProprietaire }}</p>
+                                        <p>Nombre de place : {{ entity.nbrPlace }}</p>
+                                        <p>NIF : {{ entity.nIF }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>    
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                    <div class="contact-inner">
+                        <div class="contact-dt" >
+                            <table style="width:90%; margin: auto;">
+                            {% set i = 0 %}
+                            {% set j = 0 %}
+                            {% set cp = 1 %}
+                            {% for e in entity.place %}
+                                <tr>
+                                {% for result in e %}
+                                    {% if i==0 and j== 0%}
+                                        <td><div class="chauffeur">1</div></td>
+                                    {% else %}
+                                        {% if result == 0 %}
+                                            <td></td>
+                                        {% else %}
+                                            <td><div class="place-disponible">{{ cp }}</div></td>
+                                            {% set cp = cp+1  %}
+                                        {% endif %}
+                                    {% endif %}
+                                    {% set j = j+1 %}
+                                    
+                                {% endfor %}
+                                {% set i = i + 1 %}
+                                
+                            {% endfor %}
+                            </table>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    <!-- End Email Statistic area-->
+
+
+
+
+
+
+
+{% endblock %}

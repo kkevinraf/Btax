@@ -1,0 +1,15 @@
+adminbtax_reservation_search:
+    pattern:  /search
+    defaults: { _controller: "BtaxBundle:ReservationAdminBtax:search" }
+
+adminbtax_reservation_searchadvanced:
+    pattern:  /searchadvanced
+    defaults: { _controller: "BtaxBundle:ReservationAdminBtax:searchAdvanced" }
+
+adminbtax_reservation_searchrun:
+    pattern:  /search/run
+    defaults: { _controller: "BtaxBundle:ReservationAdminBtax:searchRun" }
+
+adminbtax_reservation_searchadvancedrun:
+    pattern:  /searchadvanced/run
+    defaults: { _controller: "BtaxBundle:ReservationAdminBtax:searchAdvancedRun" }

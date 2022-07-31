@@ -1,0 +1,105 @@
+/*---------------------------------------------------------------------*/
+/*-------------------------------Icone--------------------------------------*/	
+
+
+#itineraire
+{
+	background: url(../img/localisation.png) center no-repeat;
+	background-size: cover;
+	background-size: 52%;
+}
+
+	#itineraire-active
+	{
+		background: url(../img/localisation-active.png) center no-repeat;
+		background-size: cover;
+		background-size: 52%;
+	}
+
+#reservation
+{
+	background: url(../img/book.png) center no-repeat;
+	background-size: cover;
+	background-size: 52%;
+}
+
+	#reservation-active
+	{
+		background: url(../img/book-active.png) center no-repeat;
+		background-size: cover;
+		background-size: 52%;
+	}
+
+#cooperative
+{
+	background: url(../img/cooperative.png) center no-repeat;
+	background-size: cover;
+	background-size: 52%;
+}
+
+	#cooperative-active
+	{
+		background: url(../img/cooperative-active.png) center no-repeat;
+		background-size: cover;
+		background-size: 52%;
+	}
+
+#recherche
+{
+	background: url(../img/search.png) center no-repeat;
+	background-size: cover;
+	background-size: 52%;
+}
+
+
+	#recherche-active
+	{
+		background: url(../img/search-active.png) center no-repeat;
+		background-size: cover;
+		background-size: 52%;
+	}
+
+#notification
+{
+	background: url(../img/notification.png) center no-repeat;
+	background-size: cover;
+	background-size: 52%;
+}
+
+	#notification-active
+	{
+		background: url(../img/notification-active.png) center no-repeat;
+		background-size: cover;
+		background-size: 52%;
+	}
+
+#favoris
+{
+	background: url(../img/favoris.png) center no-repeat;
+	background-size: cover;
+	background-size: 52%;
+}
+
+	#favoris-active
+	{
+		background: url(../img/favoris-active.png) center no-repeat;
+		background-size: cover;
+		background-size: 52%;
+	}
+
+#parametres
+{
+	background: url(../img/setting.png) center no-repeat;
+	background-size: cover;
+	background-size: 52%;
+}
+
+	#parametres-active
+	{
+		background: url(../img/setting-active.png) center no-repeat;
+		background-size: cover;
+		background-size: 52%;
+	}
+
+/*---------------------------------------------------------------------*/
+/*-------------------------------End Icone--------------------------------------*/

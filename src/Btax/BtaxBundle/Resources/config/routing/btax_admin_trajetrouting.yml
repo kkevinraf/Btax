@@ -1,0 +1,11 @@
+adminbtax_searchtrajet:
+    pattern:  /trajet/search
+    defaults: { _controller: "BtaxBundle:TrajetAdminBtax:search" }
+
+trajet_run_search:
+    pattern:  /trajet/search/run
+    defaults: { _controller: "BtaxBundle:TrajetAdminBtax:runSearch" }
+
+adminbtax_detailtrajet:
+    pattern:  /trajet/detail/{id}
+    defaults: { _controller: "BtaxBundle:TrajetAdminBtax:detailSearch" }

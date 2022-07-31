@@ -1,0 +1,30 @@
+voiture:
+    pattern:  /
+    defaults: { _controller: "CooperativeBundle:VoitureAdmin:index" }
+
+voiture_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "CooperativeBundle:VoitureAdmin:show" }
+
+voiture_new:
+    pattern:  /new
+    defaults: { _controller: "CooperativeBundle:VoitureAdmin:new" }
+
+voiture_create:
+    pattern:  /create
+    defaults: { _controller: "CooperativeBundle:VoitureAdmin:create" }
+    requirements: { _method: post }
+
+voiture_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "CooperativeBundle:VoitureAdmin:edit" }
+
+voiture_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "CooperativeBundle:VoitureAdmin:update" }
+    requirements: { _method: post|put }
+
+voiture_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "CooperativeBundle:VoitureAdmin:delete" }
+    requirements: { _method: post|delete }

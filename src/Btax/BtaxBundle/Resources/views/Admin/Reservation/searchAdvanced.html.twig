@@ -1,0 +1,55 @@
+ {% extends '::layout_admin_btax.html.twig' %}
+
+{% block body -%}
+
+<div class="container">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="form-example-wrap mg-t-30">
+                <div class="cmp-tb-hd cmp-int-hd">
+                     <h2>Recherche transaction (avancee)</h2>
+                </div>
+                
+                <div class="form-example-int form-horizental">
+                    <div class="form-group">
+                        <div class="row">
+                        <form action="{{ path('adminbtax_reservation_searchadvancedrun') }}" method="POST">
+                            <div class="col-lg-4 col-md-3 col-sm-3 col-xs-12">
+                                <br><input type="date" class="form-control input-sm" name="date_debut" required />
+                            </div>
+                            <div class="col-lg-4 col-md-7 col-sm-7 col-xs-12">
+                                <br><input type="date" class="form-control input-sm" name="date_fin" required />
+                            </div>
+                            <div class="col-lg-4 col-md-7 col-sm-7 col-xs-12">
+                                <br>
+                                <select class="form-control input-sm" name="depart">
+                                    <option value="0">Tous</option>
+                                    {% if localisation is defined and localisation|length != 0 %}
+                                        {% for l in localisation %}
+                                        <option value="{{ l.id }}">{{ l.localisation }}</option>
+                                        {% endfor %}
+                                    {% endif %}
+                                </select>
+                            </div>
+                             <div class="col-lg-4 col-md-7 col-sm-7 col-xs-12">
+                                <br>
+                                <select class="form-control input-sm" name="destination">
+                                    <option value="0">Tous</option>
+                                    {% if localisation is defined and localisation|length != 0 %}
+                                        {% for l in localisation %}
+                                        <option value="{{ l.id }}">{{ l.localisation }}</option>
+                                        {% endfor %}
+                                    {% endif %}
+                                </select>
+                            </div>
+                            <div class="col-lg-3 col-md-7 col-sm-7 col-xs-12">
+                                <br><input type="submit" class="btn btn-success notika-btn-success waves-effect" value="Recherche">
+                            </div>
+                        </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+{% endblock %}

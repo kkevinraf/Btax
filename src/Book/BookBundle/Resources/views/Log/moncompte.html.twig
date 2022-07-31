@@ -1,0 +1,153 @@
+{% extends '::layout_user.html.twig' %}
+
+{% block stylesheets %}
+<link rel="stylesheet" type="text/css" href="{{ asset('user_assets/css/moncompte-style.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('user_assets/css/transaction-table.css') }}">
+{% endblock %}
+
+{% block body %}
+<div>
+		<div class="banniere"></div>
+
+		<div class="content-b">
+
+<div class="mc-style-content">
+		<!------------------------------------------------------------------------------->
+		<!------------------------------------Start content------------------------------->
+
+		<div class="mc-left-content">
+			{% if user is defined and user|length %}
+			{% for us in user %}
+			<div class="mc-user-details">
+				<div class="mc-user-details-header">
+					<div class="mc-user-details-h-avatar">
+						{{ app.user|slice(0,1)|upper  }}
+					</div>
+					<div class="mc-user-details-h-name">
+						{{ us.username }}
+					</div>
+					<div class="mc-user-details-h-link-update">
+						<a href="#">{{ 'Modifier'|trans }}</a>
+					</div>
+				</div>
+
+				<div class="mc-user-details-body">
+					<div class="mc-user-details-body-title">
+						<div class="t-details-icon"></div>
+						<div class="mc-user-details-body-title-l">{{ 'Mon compte'|trans }}</div>
+					</div>
+					<div class="mc-user-details-body-details">
+						<div class="block-mc-user-details-body-details">
+							{{ 'E-mail'|trans }} : {{ us.email }}
+						</div>
+						<div class="block-mc-user-details-body-details">
+							{{ 'Mot de passe'|trans }} : ******** (<a href="#">{{ 'Modifier'|trans }}</a>)
+						</div>
+					</div>	
+				</div>
+			{% endfor %}
+			{% endif %}	
+			</div>
+
+
+			<div class="mc-user-parametre">
+				<div class="mc-user-parametre-details">
+					<div class="mc-user-parametre-title">
+						<div class="t-param-icon"></div>
+						<div class="mc-user-parametre-title-l">{{ 'Paramètres'|trans }}</div>
+					</div>
+					<div class="mc-user-parametre-details-d">
+						<div class="block-mc-user-parametre-details-d">
+							Langue : 
+								<select class="langue-b2" id="langue-account">
+									{% if langue is defined %}
+										<option value="en_EN" {% if langue == 'en_EN' %}selected{% endif %}>{{ 'Anglais'|trans }}</option>
+										<option value="fr_FR" {% if langue == 'fr_FR' %}selected{% endif %}>{{ 'Français'|trans }}</option>
+										<option value="mg_MG" {% if langue == 'mg_MG' %}selected{% endif %}>{{ 'Malagasy'|trans }}</option>
+									{% endif %}
+								</select>
+						</div>
+						<div class="block-mc-user-parametre-details-d">
+							<a href="#">{{ 'Supprimer le profil'|trans }} </a>
+						</div>
+						<div class="block-mc-user-parametre-details-d">
+							<a href="#">{{ 'Contactez le service client'|trans }} </a>
+						</div>
+						<div class="block-mc-user-parametre-details-d">
+							<a href="#">{{ 'Aide'|trans }}</a>
+						</div>
+					</div>
+
+					<div class="link-log-out">
+						<a href="{{ path('fos_user_security_logout') }}">
+							<input type="submit" name="" class="log-out-bnt" value="{{ 'Déconnexion'|trans }}">
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="mc-right-content">
+			<div class="mc-right-content-details">
+				<div class="mc-user-right-title">
+					{{ 'Historique de transaction'|trans }}
+				</div>
+
+				<div class="mc-user-right-details">
+					<table class="table">
+						<thead>
+							<tr>
+								<th>{{ 'Date'|trans }}</th>
+								<th>{{ 'Référence'|trans }}</th>
+								<th>{{ 'Montant'|trans }}</th>
+								<th>{{ 'Status'|trans }}</th>
+							</tr>
+						</thead>
+						<tbody>
+							{% if paiement is defined and paiement|length > 0 %}
+							{% for p in paiement %}
+							<tr class="alert" role="alert">
+								<td>{{ p.reservation.dateHeure|date('d/m/Y') }}</td>
+								<td>{{ p.reservation.transaction }}</td>
+								<td>{{ p.reservation.montant }} Ar</td>
+								{% if p.reservation.statut == 1 %}
+								<td class="status"><span class="active">Done</span></td>
+								{% else %}
+									{% if p.reservation.statut == 0 %}
+									<td class="status"><span class="waiting">En cours</span></td>
+									{% else %}
+										{% if p.reservation.statut == 2 %}
+										<td class="status"><span class="notif">Refunded</span></td>
+										{% else %}
+										<td class="status"><span class="waiting">Unknown payment</span></td>
+										{% endif %}
+									{% endif %}
+								{% endif %}
+							</tr>
+							{% endfor %}
+							{% else %}
+							<tr>
+								<td colspan="4"><center>{{ 'Aucun resultat'|trans }}</center></td>
+							</tr>
+							{% endif %}
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+
+
+		<!-------------------------------End content------------------------------------>
+		<!------------------------------------------------------------------------------->
+</div>
+
+
+		</div>
+	</div>
+{% endblock %}
+
+{% block javascripts %}
+	<script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+    <script src="{{ path('fos_js_routing_js', {"callback": "fos.Router.setData"}) }}"></script>
+	<script type="text/javascript" src="{{ asset('user_assets/js/langue.js') }}"></script>
+{% endblock %}

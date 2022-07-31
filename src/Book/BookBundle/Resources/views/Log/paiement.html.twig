@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>B'tax</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="">
+
+	<link rel="stylesheet" type="text/css" href="{{ asset('user_assets/css/paiement.css') }}">
+</head>
+<body>
+	<!-----------------------------Header------------------------------------>
+	<header class="topbar-c">
+		<div class="nav-c">
+
+
+			<!-----------------------------Header Left------------------------------------>
+			<div class="nav-c-left">
+				<div class="logo-place">
+					<a href="{{ path('book_homepage') }}"><img src="{{ asset('user_assets/img/logo-f.png') }}" class="logo-place-img"></a>
+				</div>
+			</div>
+			<!-----------------------------End Header Left------------------------------------>
+
+
+			<!-----------------------------Header Right------------------------------------>
+			<div class="nav-c-right">
+
+
+				<!-----------------------------Desktop Menu------------------------------------>
+				<div class="link-right-nav-c">
+
+					<!-----------------------------Desktop Menu Left ------------------------------------>
+					<div class="link-right-nav-c-left">
+						
+
+
+					</div>
+
+					<!-----------------------------Desktop Menu Right------------------------------------>
+					<div class="link-right-nav-c-right">
+						<a href="#" class="back-link">
+							<div class="back-icon"></div>
+							<div class="back-label">Back</div>
+						</a>
+					</div>
+				</div>
+				<!-----------------------------End Desktop Menu------------------------------------>
+
+
+			</div>
+			<!-----------------------------End Header Right------------------------------------>
+
+		</div>
+	</header>
+	<!-----------------------------End Header------------------------------------>
+
+
+	
+
+
+
+	<div>
+		<div class="banniere"></div>
+		<div class="content-b">
+
+			<div class="link-step">
+				<div class="link-step-top">
+					<div class="link-step-top-div">
+						<div class="link-step-top-first">
+							<div class="link-step-top-first-item item-active">1</div>
+						</div>
+						<div class="link-step-top-second">
+							<div class="link-step-top-second-item">2</div>
+						</div>
+						<div class="link-step-top-third">
+							<div class="link-step-top-third-item">3</div>
+						</div>
+					</div>
+					<div class="bread-crumb"></div>
+				</div>
+				<div class="link-step-bottom">
+					<div class="link-step-bottom-div">
+						<div class="label-step-bottom-first label-active">Place</div>
+						<div class="label-step-bottom-second">Information</div>
+						<div class="label-step-bottom-third">Paiement</div>
+					</div>
+				</div>
+			</div>
+
+
+			<div class="content-by-step">
+
+				<!------------------------------------------------------------------->
+				<!----------------------------Select place--------------------------->
+
+				<div class="content-place-choice selected">
+					<div class="header-content-by-step">
+						Choix place
+					</div>
+					<div class="overview">
+						Cooperative : {{ entity.cooperative }} <br/>
+						Place : {{ entity.itinerairecoop.place }} <br/>
+						Prix : {{ entity.itinerairecoop.prix }} Ar / place <br/>
+						<input type="hidden" class="price_hidden" value="{{ entity.itinerairecoop.prix }}">
+						<input type="hidden" name="rm" id="rm" value="{{ rm }}">
+						<input type="hidden" name="trajet" id="trajet" value="{{ entity.id }}">
+					</div>
+					<div class="content-place-choice-content">
+						<div class="content-place-legend">
+							<div class="content-place-legend-item">
+								<div class="chauffeur"></div><div class="content-place-legend-label">Place chauffeur</div>
+							</div>
+							<div class="content-place-legend-item">
+								<div class="place-reserve"></div><div class="content-place-legend-label">Place reserve</div>
+							</div>
+							<div class="content-place-legend-item">
+								<div class="place-disponible"></div><div class="content-place-legend-label">Place disponible</div>
+							</div>
+							<div class="content-place-legend-item">
+								<div class="place-selectionne"></div><div class="content-place-legend-label">Place selectionnee</div>
+							</div>
+						</div>
+
+						<div class="content-place-content-choice">
+							<div class="messages" id="message1">
+								Vous devez au moins choisir une place avant de passer a l'etape suivante !
+							</div>
+							<table class="c-i-body-content-table">
+							{% set i = 0 %}
+                    		{% set j = 0 %}
+					
+								<tbody>
+                        		{% for e in entity.places %}
+                            	<tr>
+                            	{% for result in e %}
+                                	{% if i==0 and j== 0%}
+                                    <td><div class="chauffeur"></div></td>
+                                	{% else %}
+                                		{% set i = i+1 %}
+                                		{% if result == 2 %}
+                                    	<td><div class="place-reserve">{{ i }}</div></td>
+                                		{% else %}
+                                			{% if result == 1 %}
+                                    		<td><div class="place-disponible icone-t" onclick="select_place( {{ i }} );" id="place_{{ i }}"> {{ i }}</div></td>
+                                			{% else %}
+                                			<td>{% set i = i-1 %}</td>
+                                			{% endif %}
+                                		{% endif %}
+                            		{% endif %}
+                        			{% set j = j+1 %}
+                        		{% endfor %}
+                                
+                        		{% endfor %}
+
+					</tbody>
+
+
+
+							</table>
+							<div class="validation-btn">
+								<input type="submit" name="Suivant" value="Suivant" class="validation-btn-btn" id="step1-validation">
+							</div>
+						</div>
+					</div>
+					
+				</div>
+				<!------------------------------------------------------------------->
+				<!----------------------------end Select place--------------------------->
+
+
+				<!------------------------------------------------------------------->
+				<!----------------------------Passager--------------------------->
+
+				<div class="content-place-content-info hidee">
+					<div class="header-content-by-step">
+						Information sur le passager
+					</div>
+					<div class="content-place-content-info-c">
+						<br>
+						<div class="messages" id="message2">
+							Merci de remplir correctement le formulaire svp :)
+						</div>
+						<div class="passager-form">
+							Veuillez renseigner le nom et prenom de chaque passager :
+							<div id="script-form">
+								
+							</div>
+						</div>
+						<div class="validation-btn">
+							<button value="Suivant" class="validation-btn-btn" id="step2-validation">Suivant</button> 
+						</div>
+						<div class="infos">
+							<br/>
+							***Nous vous invitons a renseigner des informations correctes car des verifications seront effectuees lors de l'embarquement et si les informations que vous renseignez ne sont pas correctes, nous ne pouvons pas vous autoriser a embarquer et aucun remboursement ne sera fait.
+						</div>
+					</div>
+				</div>
+
+				<!------------------------------------------------------------------->
+				<!----------------------------end passger--------------------------->
+
+				<div class="form-paiement hidee">
+					<div class="header-content-by-step">
+						Paiement
+					</div>
+					<div class="form-paiement-montant">
+						Total à payer : <i class="total-price"></i> Ar <br>
+					</div>
+					<div class="form-paiement-montant-form">
+
+
+						<div class="form-paiement-method">
+							<div class="paiment-method">
+								<div class="pm-card selected">
+									<img src="{{ asset('user_assets/img/card.png') }}" class="paiment-method-img">
+								</div>
+								<div class="pm-paypal">
+									<img src="{{ asset('user_assets/img/paypal.png') }}" class="paiment-method-img">
+								</div>
+								<div class="pm-mobile-money">
+									<img src="{{ asset('user_assets/img/mobile.png') }}" class="paiment-method-img">
+								</div>
+							</div>
+						</div>
+
+
+						<div class="form-paiement-choice">
+
+							<div class="form-paiement-card ">
+								<div class="choice-card-paiement">
+									<div class="card-item-choice card-selected" id="visa"></div>
+									<div class="card-item-choice" id="mastercard"></div>
+									<div class="card-item-choice" id="bluecard"></div>
+									<div class="card-item-choice" id="americanexpress"></div>
+								</div>
+								<div class="form-paiement-card-body">
+									<form class="form-paiement-card-body-form" action="{{ path('paiement_credit_card') }}" method="POST">
+										<div class="error-message">
+											Les informations renseignees semblent incorrectes
+											<input type="hidden" name="rm" id="rm" value="{{ rm }}">	
+										</div>
+
+										<div class="item-input-paiement">
+											<div class="label-input">
+												Numero de carte :
+											</div>
+											<div class="input-input">
+												<input type="text" name="" class="number-credit-card"required />
+											</div>
+										</div>
+										<div class="item-input-paiement">
+											<div class="label-input">
+												Date d'expiration :
+											</div>
+											<div class="input-input">
+												<input type="text" name="" class="number-credit-card"required />
+											</div>
+										</div>
+										<div class="item-input-paiement">
+											<div class="label-input">
+												Cryptogramme :
+											</div>
+											<div class="input-input">
+												<input type="text" name="" class="number-credit-card"required />
+											</div>
+										</div>
+										<div class="item-input-paiement">
+											<div class="btn-validated">
+												<input type="submit" name="" value="Valider et accepter nos CGU" class="paiement-validated">
+											</div>
+										</div>
+									</form>
+								</div>
+							</div>
+
+							<div class="form-paiement-paypal hidee">
+								<div class="info-paypal">
+									En cliquant sur le bouton "Valider avec mon compte Paypal", vous serez redirige sur votre compte Paypal. Vous pouvez ensuite valider votre reservation depuis votre compte Paypal.
+									<div class="item-input-paiement">
+											<div class="btn-validated">
+												<input type="submit" name="" value="Valider avec votre compte Paypal" class="paiement-validated">
+											</div>
+										</div>
+								</div>
+							</div>
+
+
+							<div class="form-paiement-mobile-money hidee">
+								<div class="choice-card-paiement">
+									<div class="card-item-choice card-selected" id="orange"></div>
+									<div class="card-item-choice" id="airtel"></div>
+									<div class="card-item-choice" id="telma"></div>
+								</div>
+								<div class="form-paiement-card-body">
+									<form class="form-paiement-card-body-form" action="{{ path('paiement_mobile_money') }}" method="POST">
+										<div class="error-message">
+											Les informations renseignees semblent incorrectes	
+											<input type="hidden" name="rm" id="rm" value="{{ rm }}">
+										</div>
+
+										<div class="item-input-paiement">
+											<div class="label-input">
+												Numero :
+											</div>
+											<div class="input-input">
+												<input type="text" name="" class="number-credit-card" required />
+											</div>
+										</div>
+										<div class="item-input-paiement">
+											<div class="label-input">
+												Code de confirmation :
+											</div>
+											<div class="input-input">
+												<input type="text" name="" class="number-credit-card"required />
+											</div>
+										</div>
+										
+										<div class="item-input-paiement">
+											<div class="btn-validated">
+												<input type="submit" name="" value="Valider et accepter nos CGU" class="paiement-validated">
+											</div>
+										</div>
+									</form>
+								</div>
+							</div>
+
+							<div class="information-paiement">
+								** Une fois votre reservation effectuee, vous recevrez un e-mail de confimation.<br>
+								** Pour annuler votre reservation, vous devez contacter soit le service client de B'tax soit le service client de Cotisse au plus tard 72 heures avant la date de depart<br>		
+							</div>
+						</div>
+
+					</div>
+				</div>
+
+			</div>
+	
+			
+
+
+
+		</div>
+	</div>
+
+
+	<script type="text/javascript" src="{{ asset('user_assets/js/jquery-3.4.1.min.js') }}"></script>
+	<script type="text/javascript" src="{{ asset('user_assets/js/script.js') }}"></script>
+	<script type="text/javascript" src="{{ asset('user_assets/js/paiement-script.js') }}"></script>
+	<script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+    <script src="{{ path('fos_js_routing_js', {"callback": "fos.Router.setData"}) }}"></script>
+</html>

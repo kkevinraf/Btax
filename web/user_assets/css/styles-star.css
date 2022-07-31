@@ -1,0 +1,10 @@
+#value, #value-add, #value-list {height:30px; width:0; background:#fac202;}
+#glob {display: flex;}
+
+
+.tde, .tde-list
+{
+	height: 30px;
+	width: 30px;
+}
+

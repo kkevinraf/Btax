@@ -1,0 +1,7 @@
+btax_link_itineraire:
+    pattern:  /itineraire
+    defaults: { _controller: "BtaxBundle:LinkAdminBtax:listItineraire" }
+
+btax_link_myaccount:
+    pattern:  /myaccount
+    defaults: { _controller: "BtaxBundle:LinkAdminBtax:myAccount" }

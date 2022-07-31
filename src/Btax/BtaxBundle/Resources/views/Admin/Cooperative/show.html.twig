@@ -1,0 +1,96 @@
+{% extends '::layout_admin_btax.html.twig' %}
+
+{% block stylesheets %}
+<style type="text/css">
+    .contact-img
+    {
+    margin: auto;
+    }
+    .logo-l
+    {
+        width: 180px;
+        height: 180px;
+        border: 1px solid #000;
+        
+    }
+</style>
+{% endblock %}
+{% block body -%}
+
+ <div class="container">
+        <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
+            <div class="contact-inner">
+                        <div class="contact-dt">
+                            <div class="contact-list">
+                                <div class="contact-win">
+                                    <div class="contact-img">
+                                        {% if entity.logo == '' %}
+                                            {% set url = 'admin_assets/img/default_logo.jpg' %}
+                                        {% else %}
+                                            {% set url = 'uploads/logo/'~entity.logo %}
+                                        {% endif %}
+                                        <img src="{{ asset(url) }}" class="logo-l" alt="" />
+                                        
+                                    </div>
+                                </div>
+                                <div class="contact-ctn">
+                                    <div class="contact-ad-hd">
+                                        <h2>{{ entity.nom }}</h2>
+                                        <p class="ctn-ads">{{ entity.mail }}</p>
+                                    </div>
+                                    <p>
+                                        Adresse : {{ entity.adresse }} <br>
+                                        Contact : {{ entity.contact }} <br>
+
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div> 
+        </div>    
+
+        <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
+            <div class="data-table-list">
+                <div class="basic-tb-hd">
+                    <h2>Listes avis</h2>
+                    <hr>
+                </div>
+                <div class="table-responsive">
+                    <table id="data-table-basic" class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th> Note </th>
+                                        <th> Cooperative </th>
+                                        <th> Commentaire </th>
+                                        <th> Membre </th>
+                                        <th> Action </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                    {% if avis|length !=  0 %}
+                                    {% for a in avis %}    
+                                    <tr>
+                                        <td> {{ a.note }} </td>
+                                        <td> {{ a.cooperative }} </td>
+                                        <td> {{ a.avis }} </td>
+                                        <td> <a href="{{ path('membre_show_cooperative', { 'id':a.utilisateur.id }) }}">{{ a.utilisateur.username }}</a> </td>
+                                        <td>
+                                            <a href="{{ path('membre_avis_signale', { 'id':a.id }) }}">
+                                                <button class="btn btn-warning notika-btn-error waves-effect">Signaler</button>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    {% endfor %}
+                                    {% else %}
+                                    <center>Aucun avis<center>
+                                    {% endif %}
+                                </tbody>
+                            </table>
+                </div>
+            </div>   
+        </div>
+    </div>
+
+
+{% endblock %}

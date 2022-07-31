@@ -1,0 +1,94 @@
+{% extends '::layout_admin_btax.html.twig' %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="{{ asset('admin_assets/card-voiture.css') }}">
+{% endblock %}
+
+{% block body -%}
+
+{% if trajet|length != null %}
+
+<!-- Start Email Statistic area-->
+    <div class="notika-email-post-area">
+        <div class="container">
+            <div class="row">
+                {% for t in trajet %}
+                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                    <div class="contact-inner">
+                        <div class="contact-hd widget-ctn-hd">
+                            <h2>Detail trajet</h2>
+                        </div>
+                        <div class="contact-dt">
+                            <ul class="contact-list widget-contact-list">
+                                <li> Date : {{ t.date|date }} </li>
+                                <li> Itineraire : {{ t.itinerairecoop.itineraire.depart }} - {{ t.itinerairecoop.itineraire.destination }} </li>
+                                <li> Prix : {{ t.itinerairecoop.prix }} Ar </li>
+                                <li> Type : {{ t.itinerairecoop.place }} </li>   
+                                <li> Voiture : {{ t.voiture.immatriculation }} </li> 
+                            </ul>
+                        </div>
+                    </div>    
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                    <div class="contact-inner">
+                        <div class="contact-dt" >
+                            <table style="width:90%; margin: auto;">
+
+                            {% set i = 0 %}
+                            {% set j = 0 %}
+                    
+                                <tbody>
+                                {% for e in t.places %}
+                                <tr>
+                                {% for result in e %}
+                                    {% if i==0 and j== 0%}
+                                    <td><div class="chauffeur"></div></td>
+                                    {% else %}
+                                        {% set i = i+1 %}
+                                        {% if result == 2 %}
+                                        <td><div class="place-reserve">{{ i }}</div></td>
+                                        {% else %}
+                                            {% if result == 1 %}
+                                            <td><div class="place-disponible icone-t"> {{ i }}</div></td>
+                                            {% else %}
+                                            <td>{% set i = i-1 %}</td>
+                                            {% endif %}
+                                        {% endif %}
+                                    {% endif %}
+                                    {% set j = j+1 %}
+                                {% endfor %}
+                                
+                                {% endfor %}
+
+                                </tbody>
+
+
+                            </table>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                    <div class="contact-inner">
+                        <div class="contact-dt">
+                            <ul class="contact-list widget-contact-list">
+                                {% if reservations|length != 0 %}
+                                    {% for reservation in reservations %}
+                                    <li> {{ reservation.numplace }} : {{ reservation.nom }} </li>
+                                    {% endfor %}
+                                {% else %}
+                                    <center>Aucune reservation </center>
+                                {% endif %}                                
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <!-- End Email Statistic area-->
+{% else %}
+<center>Page introuvable</center>
+{% endif %}
+{% endblock %}

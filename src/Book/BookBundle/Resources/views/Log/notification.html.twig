@@ -1,0 +1,80 @@
+{% extends '::layout_user.html.twig' %}
+
+{% block stylesheets %}
+
+<link rel="stylesheet" type="text/css" href="{{ asset('user_assets/css/style-notification.css') }}">
+
+{% endblock %}
+
+{% block body %}
+<div>
+	<div class="banniere"></div>
+	<div class="content-b">
+
+	{% if notification is defined and notification|length > 0 %}
+
+		{% for n in notification %}
+	<!--------------------------------------- card----------------------------------------->
+	<!------------------------------------------------------------------------------------->
+
+	<div class="notification-card">
+		{% set url = 'uploads/localisation/'~n.destination.photo %}
+
+		<div class="notification-card-header" style="background:url({{ asset(url) }}) center no-repeat; background-size: cover;">
+			<div class="c-i-baniere-bg-opacity">
+				<div class="c-i-baniere-link">
+					<div class="delete-icon">
+						<a href="#">
+							<div class="delete-icon-i"></div>
+						</a>
+					</div>
+					<div class="notif-icon">
+						<a href="#">
+							<div class="notif-icon-i"></div>
+							<div class="counter-notification">{{ n.nbrResult }}</div>
+						</a>
+					</div>	
+				</div>	
+				<div class="notification-card-destination">
+					{{ n.depart }} - {{ n.destination }}
+				</div>	
+			</div>
+		</div>
+
+		<div class="notification-card-body">
+			<div class="notification-card-body-title">
+				{{ 'Vos critères'|trans }} :
+			</div>
+			<div class="notification-card-body-details">
+				<ul style="min-height: 115px; height: auto;">
+					{% if n.cooperative != null %}
+						<li>{{ 'Coopérative'|trans }} : {{ n.cooperative }}</li>
+					{% endif %}
+					
+					<li>Date : {{ n.date|date('d/m/Y') }}</li>
+					<li>{{ 'Nombre de place'|trans }} : {{ n.nbrPlace }}</li>
+					{% if n.cooperative != null %}
+						<li>{{ 'Type de place'|trans }} : {{ n.place }}</li>
+					{% endif %}
+					
+				</ul>
+				
+				<a href="{{ path('book_notification_search', { 'id': n.id }) }}"><input type="submit" name="" class="card-notification-button" value="{{ 'Recherche'|trans }}"></1>
+			</div>
+		</div>
+
+	</div>
+
+<!--------------------------------------- end card----------------------------------------->
+<!------------------------------------------------------------------------------------->
+		{% endfor %}
+
+	{% else %}
+		<div style="margin-top:20px; line-height: 40px; text-align:center; background: #fff; width: 100%; min-height: 40px; height: auto; padding: 5px auto;">
+		{{ 'Aucune recherche enregistrée'|trans }}
+		</div>
+
+	{% endif %}
+	</div>
+</div>
+{% endblock %}

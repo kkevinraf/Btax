@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>B'tax</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="">
+
+	<link rel="stylesheet" type="text/css" href="{{ asset('user_assets/css/paiement.css') }}">
+</head>
+<body>
+	<!-----------------------------Header------------------------------------>
+	<header class="topbar-c">
+		<div class="nav-c">
+
+
+			<!-----------------------------Header Left------------------------------------>
+			<div class="nav-c-left">
+				<div class="logo-place">
+					<a href="{{ path('book_homepage') }}"><img src="{{ asset('user_assets/img/logo-f.png') }}" class="logo-place-img"></a>
+				</div>
+			</div>
+			<!-----------------------------End Header Left------------------------------------>
+
+
+			<!-----------------------------Header Right------------------------------------>
+			<div class="nav-c-right">
+
+
+				<!-----------------------------Desktop Menu------------------------------------>
+				<div class="link-right-nav-c">
+
+					<!-----------------------------Desktop Menu Left ------------------------------------>
+					<div class="link-right-nav-c-left">
+						
+
+
+					</div>
+
+					
+				</div>
+				<!-----------------------------End Desktop Menu------------------------------------>
+
+
+			</div>
+			<!-----------------------------End Header Right------------------------------------>
+
+		</div>
+	</header>
+	<!-----------------------------End Header------------------------------------>
+
+
+	
+
+
+
+	<div>
+		<div class="banniere"></div>
+		<div class="content-b">
+
+		
+			<div class="content-info-paiement">
+				<div class="icon-refused"></div>
+				<div class="message-info-paiement">
+					Oups !!! Une erreur est survenue :( 
+				Votre compte n'a pas été débité, vous pouvez effectuer une nouvelle tentative de paiement.
+				</div>	
+				<div class="btn-back">
+					<a href="{{ path('search_log_out') }}"><button class="refused-btn">Revenir sur le site</button></a>
+				</div>	
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,30 @@
+localisation:
+    pattern:  /
+    defaults: { _controller: "BtaxBundle:LocalisationAdmin:index" }
+
+localisation_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "BtaxBundle:LocalisationAdmin:show" }
+
+localisation_new:
+    pattern:  /new
+    defaults: { _controller: "BtaxBundle:LocalisationAdmin:new" }
+
+localisation_create:
+    pattern:  /create
+    defaults: { _controller: "BtaxBundle:LocalisationAdmin:create" }
+    requirements: { _method: post }
+
+localisation_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "BtaxBundle:LocalisationAdmin:edit" }
+
+localisation_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "BtaxBundle:LocalisationAdmin:update" }
+    requirements: { _method: post|put }
+
+localisation_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "BtaxBundle:LocalisationAdmin:delete" }
+    requirements: { _method: post|delete }

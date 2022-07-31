@@ -1,0 +1,30 @@
+place:
+    pattern:  /
+    defaults: { _controller: "CooperativeBundle:PlaceAdmin:index" }
+
+place_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "CooperativeBundle:PlaceAdmin:show" }
+
+place_new:
+    pattern:  /new
+    defaults: { _controller: "CooperativeBundle:PlaceAdmin:new" }
+
+place_create:
+    pattern:  /create
+    defaults: { _controller: "CooperativeBundle:PlaceAdmin:create" }
+    requirements: { _method: post }
+
+place_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "CooperativeBundle:PlaceAdmin:edit" }
+
+place_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "CooperativeBundle:PlaceAdmin:update" }
+    requirements: { _method: post|put }
+
+place_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "CooperativeBundle:PlaceAdmin:delete" }
+    requirements: { _method: post|delete }

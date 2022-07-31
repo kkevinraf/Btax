@@ -1,0 +1,11 @@
+langue_update:
+    pattern:  /langue/update/{langue}
+    defaults: { _controller: LangueBundle:Langue:update }
+    options:
+        expose: true
+
+langue_update_home:
+    pattern:  /langue/update/home/{langue}
+    defaults: { _controller: LangueBundle:Langue:updateHome }
+    options:
+        expose: true

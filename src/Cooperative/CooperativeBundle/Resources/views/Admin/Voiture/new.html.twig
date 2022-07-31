@@ -1,0 +1,139 @@
+{% extends '::layout_admin_cooperative.html.twig' %}
+
+{% block stylesheets -%}
+ <link rel="stylesheet" href="{{ asset('admin_assets/card-voiture.css') }}">
+ <style type="text/css">
+        .place-disponible, .place-selectionne
+        {
+            cursor: pointer;
+        }
+        .place-selectionne
+        {
+            color: #fff;
+        }
+    </style>
+{% endblock %}
+
+{% block body -%}
+
+ <!-- Start Email Statistic area-->
+    <div class="notika-email-post-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-6 col-sm-6 col-xs-12">
+                    <div class="contact-inner">
+                        <div class="contact-dt">
+                            <div class="contact-list">
+                            	{{ form_start(form) }}
+
+                                <h4>Nouveau</h4>
+                                <hr>
+                                <div class="contact-ctn">
+                                    <p>
+                                    	<input type="hidden" name="nbplace" id="nbplace">
+                                        <input type="hidden" name="arrayplace" id="arrayplace">
+                                         <div class="form-example-int form-horizental">
+                                            <div class="form-group">
+                                                <div class="row">
+                                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                                        <label class="hrzn-fm">Immatriculation :</label>
+                                                    </div>
+                                                    <div class="col-lg-8 col-md-7 col-sm-7 col-xs-12">
+                                                    	{{ form_widget(form.immatriculation, {'attr': {'class':'form-control input-sm', 'placeholder':'Numero d\'immatriculation de la voiture'} } )}}
+                                                    </div>
+                                                </div>
+                                                <br>
+                                                <div class="row">
+                                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                                        <label class="hrzn-fm">Nom proprietaire :</label>
+                                                    </div>
+                                                    <div class="col-lg-8 col-md-7 col-sm-7 col-xs-12">
+                                                        {{ form_widget(form.nomProprietaire, {'attr': {'class':'form-control input-sm', 'placeholder':'Nom du proprietaire'} } )}}
+                                                    </div>
+                                                </div>
+                                                <br>
+                                                <div class="row">
+                                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                                        <label class="hrzn-fm">NIF :</label>
+                                                    </div>
+                                                    <div class="col-lg-8 col-md-7 col-sm-7 col-xs-12">
+                                                        {{ form_widget(form.nIF, {'attr': {'class':'form-control input-sm', 'placeholder':'NIF de la voiture'} } )}}
+                                                    </div>
+                                                </div>
+                                                <br>                                                
+                                                <div class="row">
+                                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                                        <label class="hrzn-fm">Colonne :</label>
+                                                    </div>
+                                                    <div class="col-lg-3 col-md-7 col-sm-7 col-xs-12">
+                                                        <select class="form-control input-sm" id="colomn-place" name="colonne">
+                                                            {% for i in 1..10 %}
+                                                            <option value="{{ i }}">{{ i }}</option>
+                                                            {% endfor%}
+                                                        </select>
+                                                    </div>
+                                                    <div class="col-lg-2 col-md-3 col-sm-3 col-xs-12">
+                                                        <label class="hrzn-fm">Rangee :</label>
+                                                    </div>
+                                                    <div class="col-lg-3 col-md-7 col-sm-7 col-xs-12">
+                                                        <select class="form-control input-sm" id="line-place" name="range">
+                                                        	{% for i in 1..10 %}
+                                                            <option value="{{ i }}">{{ i }}</option>
+                                                            {% endfor%}
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                                        {{ form_widget(form._token) }}
+                                                    </div>
+                                                    <div class="col-lg-8 col-md-7 col-sm-7 col-xs-12">
+                                                    <br/>
+                                                        <input type="submit" value="Enregistrer" class="btn btn-success notika-btn-success waves-effect">
+                                                    </div>
+                                                </div>
+                                                <br>
+                                            </div>
+                                        </div>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>    
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                    <div class="contact-inner">
+                        <div class="contact-dt" >
+                            <table>
+                                <tr>
+                                    <td><div class="place-disponible"></div></td>
+                                    <td><div class="labe-add" style="display: inline-block; line-height: 30px;">Place vide &nbsp;</div></td>
+                                    <td><div class="place-selectionne"></div></td>
+                                    <td><div class="labe-add" style="display: inline-block; line-height: 30px;">Place selectionne</div></td>
+                                </tr>
+                            </table>
+                             
+                             
+                            <hr>
+                            <table class="table-place" style="width:90%; margin: auto;">
+                                <tr>
+                                    <td><div class="chauffeur"></div></td>
+                                </tr>
+                            </table>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    <!-- End Email Statistic area-->
+
+{% endblock %}
+
+{% block javascripts %}
+
+<script src="{{ asset('admin_assets/add-car.js') }}"></script>
+
+{% endblock %}

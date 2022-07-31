@@ -1,0 +1,12 @@
+btax_compte_new:
+    pattern:  /new
+    defaults: { _controller: "BtaxBundle:CompteAdminBtax:new" }
+
+btax_compte_create:
+    pattern:  /create
+    defaults: { _controller: "BtaxBundle:CompteAdminBtax:create" }
+    requirements: { _method: post }
+
+btax_compte_index:
+    pattern:  /
+    defaults: { _controller: "BtaxBundle:CompteAdminBtax:index" }

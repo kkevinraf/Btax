@@ -1,0 +1,107 @@
+.filter
+{
+	display: block;
+	position: fixed;
+	bottom: 10px;
+	right: 10px;
+	height: 40px;
+	width: 40px;
+	background-color: #04091d;
+	border-radius: 100%;
+	text-align: center;
+	cursor: pointer;
+}
+
+.filter-img
+{
+	background: url(../img/filtre-w.png) center no-repeat;
+	background-size: cover;
+	height: 60%;
+	width: 60%;
+	margin: 7px auto;
+	
+}
+
+.filter-img-leave
+{
+	background: url(../img/croix-w.png) center no-repeat;
+	background-size: cover;
+	height: 50%;
+	width: 50%;
+	margin: 10px auto;
+	display: none;
+}
+
+.filter-form
+{
+	display: none;
+	position: fixed;
+	bottom: 60px;
+	right: 10px;
+	min-height: 170px;
+	height: auto;
+	width: 300px;
+	background-color: #fff;
+	border-radius: 10px;
+	text-align: center;
+	box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, .1);
+}
+
+.filter-form-header
+{
+	height: 45px;
+	width: 100%;
+	background-color: #04091d;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	color: #fff;
+	line-height: 45px;
+	text-align: center;
+
+}
+
+.filter-form-content
+{ 
+	height: auto;
+	width: 90%;
+	margin: auto;
+}
+
+.filter-form-content-title
+{
+	color: #04091d;
+	font-size: 17px;
+	line-height: 20px;
+	margin-top: 20px;
+}
+
+.filter-form-content-form
+{
+	height: auto;
+	margin-top: 20px;
+}
+
+.filter-form-content-form-input
+{
+	height: 50px;
+}
+
+.filter-form-content-form-input-i
+{
+	height: 34px;
+	width: 100%;
+	border-radius: 20px;
+	border: 1px solid #04091d;
+	text-align: center;
+}
+
+.filter-form-content-form-input-b
+{
+	height: 34px;
+	width: 100%;
+	border-radius: 20px;
+	border: 1px solid #fac202;
+	text-align: center;
+	background-color: #fac202;
+	color: #fff;
+}

@@ -1,0 +1,159 @@
+<?php
+
+namespace Btax\BtaxBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Avis
+ *
+ * @ORM\Table()
+ * @ORM\Entity(repositoryClass="Btax\BtaxBundle\Repository\AvisRepository")
+ */
+class Avis
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Avis", type="text")
+     */
+    private $avis;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="Note", type="integer")
+     */
+    private $note;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="Statut", type="integer")
+     */
+    private $statut;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Btax\BtaxBundle\Entity\Cooperative")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $cooperative;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Utilisateurs\UtilisateursBundle\Entity\Utilisateurs")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $utilisateur;
+
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set avis
+     *
+     * @param string $avis
+     * @return Avis
+     */
+    public function setAvis($avis)
+    {
+        $this->avis = $avis;
+
+        return $this;
+    }
+
+    /**
+     * Get avis
+     *
+     * @return string 
+     */
+    public function getAvis()
+    {
+        return $this->avis;
+    }
+
+    /**
+     * Set note
+     *
+     * @param integer $note
+     * @return Avis
+     */
+    public function setNote($note)
+    {
+        $this->note = $note;
+
+        return $this;
+    }
+
+    /**
+     * Get note
+     *
+     * @return integer 
+     */
+    public function getNote()
+    {
+        return $this->note;
+    }
+
+    /**
+     * Set statut
+     *
+     * @param integer $statut
+     * @return Avis
+     */
+    public function setStatut($statut)
+    {
+        $this->statut = $statut;
+
+        return $this;
+    }
+
+    /**
+     * Get statut
+     *
+     * @return integer 
+     */
+    public function getStatut()
+    {
+        return $this->statut;
+    }
+
+    /**
+     * Set cooperative
+     *
+     * @param \Btax\BtaxBundle\Entity\Cooperative $cooperative
+     * @return Avis
+     */
+    public function setCooperative(\Btax\BtaxBundle\Entity\Cooperative $cooperative)
+    {
+        $this->cooperative = $cooperative;
+
+        return $this;
+    }
+
+    /**
+     * Get cooperative
+     *
+     * @return \Btax\BtaxBundle\Entity\Cooperative 
+     */
+    public function getCooperative()
+    {
+        return $this->cooperative;
+    }
+}

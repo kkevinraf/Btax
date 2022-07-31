@@ -1,0 +1,64 @@
+{% extends '::layout_admin_cooperative.html.twig' %}
+
+{% block stylesheets -%}
+
+<link rel="stylesheet" href="{{ asset('admin_assets/css/jquery.dataTables.min.css') }}">
+
+{% endblock %}
+
+{% block body -%}
+
+ <!-- Start Email Statistic area-->
+    <div class="notika-email-post-area">
+        <div class="container">
+            <div class="row">                
+                <div class="col-lg-12 col-md-6 col-sm-6 col-xs-12">
+                    <div class="contact-inner">
+                        <div class="contact-hd widget-ctn-hd">
+                            <h3> {% if avis is defined %} {{ avis|length }} avis (4,5 / 5) {% endif %}</h3>
+                            <hr>
+                        </div>
+                        <div class="contact-dt">
+                            <div class="table-responsive">
+                            <table id="data-table-basic" class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th> Note </th>
+                                        <th> Cooperative </th>
+                                        <th> Commentaire </th>
+                                        <th> Membre </th>
+                                        <th> Action </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                    {% if avis|length !=  0 %}
+                                    {% for a in avis %}    
+                                    <tr>
+                                        <td> {{ a.note }} </td>
+                                        <td> {{ a.cooperative }} </td>
+                                        <td> {{ a.avis }} </td>
+                                        <td> <a href="{{ path('membre_show_cooperative', { 'id':a.utilisateur.id }) }}">{{ a.utilisateur.username }}</a> </td>
+                                        <td>
+                                            <a href="{{ path('membre_avis_signale', { 'id':a.id }) }}">
+                                                <button class="btn btn-warning notika-btn-error waves-effect">Signaler</button>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    {% endfor %}
+                                    {% else %}
+                                    <center>Aucun avis<center>
+                                    {% endif %}
+                                </tbody>
+                            </table>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Email Statistic area-->
+
+
+{% endblock %}

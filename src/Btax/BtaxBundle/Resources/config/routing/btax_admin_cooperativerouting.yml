@@ -1,0 +1,30 @@
+cooperative:
+    pattern:  /
+    defaults: { _controller: "BtaxBundle:CooperativeAdmin:index" }
+
+cooperative_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "BtaxBundle:CooperativeAdmin:show" }
+
+cooperative_new:
+    pattern:  /new
+    defaults: { _controller: "BtaxBundle:CooperativeAdmin:new" }
+
+cooperative_create:
+    pattern:  /create
+    defaults: { _controller: "BtaxBundle:CooperativeAdmin:create" }
+    requirements: { _method: post }
+
+cooperative_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "BtaxBundle:CooperativeAdmin:edit" }
+
+cooperative_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "BtaxBundle:CooperativeAdmin:update" }
+    requirements: { _method: post|put }
+
+cooperative_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "BtaxBundle:CooperativeAdmin:delete" }
+    requirements: { _method: post|delete }

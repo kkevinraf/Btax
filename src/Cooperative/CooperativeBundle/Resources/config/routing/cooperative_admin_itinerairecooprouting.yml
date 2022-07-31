@@ -1,0 +1,12 @@
+itinerairecoop:
+    pattern:  /
+    defaults: { _controller: "CooperativeBundle:ItineraireCoopAdmin:index" }
+
+itinerairecoop_new:
+    pattern:  /new
+    defaults: { _controller: "CooperativeBundle:ItineraireCoopAdmin:new" }
+
+itinerairecoop_create1:
+    pattern:  /create1
+    defaults: { _controller: "CooperativeBundle:ItineraireCoopAdmin:create1" }
+    requirements: { _method: post }

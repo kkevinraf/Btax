@@ -1,0 +1,15 @@
+adminbtax_avis_tovalidate:
+    pattern:  /tovalidate
+    defaults: { _controller: "BtaxBundle:AvisAdminBtax:toValidate" }
+
+adminbtax_avis_tomoderate:
+    pattern:  /tomoderate
+    defaults: { _controller: "BtaxBundle:AvisAdminBtax:toModerate" }
+
+avis_validate:
+    pattern:  /validate/{id}
+    defaults: { _controller: "BtaxBundle:AvisAdminBtax:validate" }
+
+avis_delete:
+    pattern:  /delete/{id}
+    defaults: { _controller: "BtaxBundle:AvisAdminBtax:delete" }

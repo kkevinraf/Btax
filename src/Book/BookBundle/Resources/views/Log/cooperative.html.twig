@@ -1,0 +1,53 @@
+{% extends '::layout_user.html.twig' %}
+
+{% block body %}
+<div>
+	<div class="banniere"></div>
+	<div class="content-b">
+
+{% for entity in entities %}
+<!-----------------------------Card------------------------------------>
+	<div class="card-cooperative">
+		<div class="card-cooperative-logo">
+
+			{% set url = 'uploads/logo/default_logo.jpg' %}
+
+			{% if entity.logo != "" %}
+				{% set url = 'uploads/logo/'~entity.logo %}
+			{% endif %}
+
+			<div class="card-cooperative-logo-img" style="background: url({{ asset(url) }}); background-size: cover; background-position: center;"></div>	
+			
+			
+		</div>
+		<div class="card-cooperative-name">
+			<a href="{{ path('book_detailcooperative', { 'id': entity.id }) }}" class="card-cooperative-body-link">{{ entity.nom }}</a>
+		</div>
+		<div class="card-cooperative-avis">
+			<div class="card-cooperative-star">
+				<div id="value" style="width: 105px;">
+					<div id="glob" >
+				      <img id="tde_1" src="{{ asset('user_assets/img/star.png') }}" class="tde"/>
+				      <img id="tde_2" src="{{ asset('user_assets/img/star.png') }}" class="tde"/>
+				      <img id="tde_3" src="{{ asset('user_assets/img/star.png') }}" class="tde"/>
+				      <img id="tde_4" src="{{ asset('user_assets/img/star.png') }}" class="tde"/>
+				      <img id="tde_5" src="{{ asset('user_assets/img/star.png') }}" class="tde"/>    
+				    </div>
+				</div>
+			</div>
+		</div>
+		<div class="card-cooperative-contact">
+			<div class="card-cooperative-contact-g">
+				<label class="card-cooperative-contact-g-fb"></label>
+				<label class="card-cooperative-contact-g-tw"></label>
+				<label class="card-cooperative-contact-g-insta"></label>
+				<label class="card-cooperative-contact-g-mail"></label>
+			</div>	
+		</div>
+	</div>
+<!-----------------------------End card------------------------------------>
+{% endfor %}
+
+	</div>
+</div>
+{% endblock %}

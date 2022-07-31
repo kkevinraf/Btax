@@ -1,0 +1,392 @@
+*
+{
+	margin: 0;
+	padding: 0;
+	height: 100%;	
+	font-size: 16px;
+	font-family: verdana, sans-serif;
+	line-height: 1.8;
+	font-weight: 500;
+	color: #04091d;
+}
+
+body
+{
+	background-color: #d3d5d8;
+}
+
+.banniere
+{
+	height: 60px;
+	width: 100%;
+}
+
+.is-open
+{
+	display: block;
+}
+
+.is-close
+{
+	display: none;
+}
+
+.active
+{
+	color: #f4c202;
+}
+
+.link-right-nav-c
+{
+	display: none;
+}
+
+.link-right-nav-c-left-space-link
+{
+	text-decoration: none;
+}
+
+.avatar-menu
+{
+	display: none;
+}
+
+/*------------------------------Header--------------------------------*/
+/*--------------------------------------------------------------------*/
+
+	.topbar-c
+	{
+		position: fixed;
+		width: 100%;
+		top: 0;
+		left: 0;
+		right: 0;
+		height: 60px;
+		z-index: 9;
+		background-color: #fff;
+		box-shadow: 0 4px 10px rgba(0, 0, 0, .1);
+	}
+
+	.nav-c
+	{
+		width: 95%;
+		margin: auto;
+	}
+
+	/*------------------------------Logo----------------------------*/
+	/*--------------------------------------------------------------------*/
+
+	.nav-c-left
+	{
+		display: inline-block;
+		width: 20%;
+		float: left;
+	}
+
+	.logo-place-img
+	{
+		width: 60px;
+		height: 60px;
+	}
+
+	/*------------------------------End Logo----------------------------*/
+	/*--------------------------------------------------------------------*/
+
+
+	/*------------------------------Link navbar----------------------------*/
+	/*--------------------------------------------------------------------*/
+	.nav-c-right
+	{
+		display: inline-block;
+		width: 80%;
+		float: right;
+	}
+
+		/*------------------------------Toggle Link----------------------------*/
+		/*--------------------------------------------------------------------*/
+
+		.m-right-toggle-list
+		{
+			width: 40px;
+			height: 66px;
+			display: flex;
+			align-items: center;
+			float: right;
+			cursor: pointer;
+		}
+
+
+		span.m-toggle-icon, span.m-toggle-icon:before, span.m-toggle-icon:after
+		{
+			content: "";
+			display: block;
+			height: 3px;
+			background-color: #fac202;
+			position: relative;
+		}
+
+		span.m-toggle-icon {width: 50%;}
+		span.m-toggle-icon:before{top:9px;width: 120%;}
+		span.m-toggle-icon:after{top:-12px;width: 150%;}
+
+		/*------------------------------End toggle link----------------------------*/
+		/*--------------------------------------------------------------------*/
+
+	/*------------------------------End Link navbar----------------------------*/
+	/*--------------------------------------------------------------------*/
+
+
+/*------------------------------End header----------------------------*/
+/*--------------------------------------------------------------------*/
+
+
+/*------------------------------Toggle Menu----------------------------*/
+/*--------------------------------------------------------------------*/
+
+.toggle-menu
+{
+	position: fixed;
+	width: 78%;
+	background-color: #fff;
+	z-index: 10;
+	right: 0;
+	min-height: 100%;
+	height: auto;
+}
+
+.header-toggle-menu-c
+{
+	min-height: 120px;
+	height: auto;
+	background-image: url('../img/bg-avatar.jpg');
+	background-size: 100%;
+}
+
+.info-member
+{
+	min-height: 134px;
+	height: auto;
+}
+
+/*---------------------------------------------------------------------------*/
+/*--------------------------------Info  membre content-------------------------------------------*/
+
+	.avatar-img
+	{
+		width: 100px;
+	    height: 100px;
+	    border-radius: 50%;
+	    background-color: #fac202;
+	    text-align: center;
+	    margin: auto;
+	    font-weight: bold;
+	    font-size: 25px;
+	    line-height: 100px;
+	    margin-top: -60px;
+	}
+
+	.name-member
+	{
+		margin-top: 6px;
+		text-align: center;
+	}
+
+/*---------------------------------End info membre content------------------------------------------*/
+/*---------------------------------------------------------------------------*/
+
+.body-toggle-menu
+{
+	margin-top: 15px;
+	min-height: 120px;
+	height: auto;
+}
+
+	.body-toggle-menu-c ul li
+	{
+		list-style: none;
+	}
+
+	.toggle-list-link
+	{
+		display: flex;
+		flex-wrap: nowrap;
+		height: 20px;
+		margin-top: 17px;
+		cursor: pointer;
+	}
+
+	.toggle-icon
+	{
+		height: 100%;
+		width: 45px;
+		margin-left: 8px;
+	}
+
+	.toggle-label
+	{
+		line-height: 20px;
+	}
+
+	.toggle-label.active
+	{
+		color: #f4c202;
+	}
+/*------------------------------End Toggle Menu----------------------------*/
+/*--------------------------------------------------------------------*/
+
+
+
+
+/*------------------------------Desktop Style----------------------------*/
+/*--------------------------------------------------------------------*/
+
+@media only screen and (min-width: 834px)
+{
+	.toggle-menu, .m-right-toggle-list
+	{
+		display: none;
+	}
+
+	.link-right-nav-c
+	{
+		display: flex;
+		flex-wrap: nowrap;
+		width: 100%;
+	}
+
+	.link-right-nav-c-left
+	{
+		display: block;
+		width: calc(100% - 65px);
+		float: right;
+		margin-right: 5px;
+	}
+
+		.link-right-nav-c-left .link-right-nav-c-left-space ul
+		{
+			width: 100%;
+		}
+
+		.link-right-nav-c-left-space
+		{
+			text-align: right;
+		}
+
+		.link-right-nav-c-left .link-right-nav-c-left-space ul li
+		{
+			list-style: none;
+		    display: inline-block;
+		    height: 100%;
+		    min-width: 80px;
+		    width: auto;
+		    margin-top: 0px;
+		}
+
+		.link-right-nav-c-left .link-right-nav-c-left-space ul li .active
+		{
+			
+			border-bottom: 4px solid #FAC202;
+		}
+
+
+			.fusion-link
+			{
+				margin-top: 0;
+				height: 100%;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				text-align: center;
+			}
+
+			.icon-fusion-link
+			{
+				text-align: center;
+				display: block;
+				height: 63%;
+				line-height: 0px;
+			}
+
+
+		
+
+			.label-fusion-link
+			{
+				display: block;
+				font-size: 12px;
+				margin-top: -4px;
+				display: block;
+				height: 32%;
+			}
+
+			.counter-fusion-link
+			{
+				height: 22px;
+				width: 22px;
+				background-color: red;
+				position: absolute;
+				top: 3px;
+				margin-left: 40px;
+				border-radius: 100%;
+				color: #fff;
+				line-height: 22px;
+				font-size: 10px;
+				text-align: center;
+			}
+
+			.icon-fusion-link-img
+			{
+				display: block;
+				text-align: center;
+				margin: auto;
+			}	
+
+
+
+	.link-right-nav-c-right
+	{
+		display: block;
+		width: 60px;
+		cursor: pointer;
+	}
+
+		.avatar-e {
+		    width: 50px;
+		    height: 50px;
+		    border-radius: 50%;
+		    background-color: #fac202;
+		    text-align: center;
+		    margin: auto;
+		    font-weight: bold;
+		    font-size: 20px;
+		    color: #fff;
+		    line-height: 50px;
+		    margin-top: 4px;
+		}
+
+}
+
+/*------------------------------End Desktop style----------------------------*/
+/*--------------------------------------------------------------------*/
+
+
+/*------------------------------Content style----------------------------*/
+/*--------------------------------------------------------------------*/
+
+.content-b
+{
+	width: 98%;
+	height: auto;
+	display: flex;
+	flex-wrap: wrap;
+	padding-top: 15px;
+	margin: auto;
+	justify-content: flex-start;
+
+}
+
+
+/*------------------------------End Content style----------------------------*/
+/*--------------------------------------------------------------------*/
+
+

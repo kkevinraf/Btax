@@ -1,0 +1,115 @@
+@media only screen and (min-width: 834px)
+{
+	.triangle
+	{
+		position: absolute;
+		top: -11px;
+		right: 35px;
+		border-width: 0 .8rem .8rem;
+		border-style: solid;
+		border-color: transparent transparent #00051e;
+		width: 0;
+		height: 0;
+		content: '';
+		z-index: 1;
+	}
+
+
+	.avatar-menu.is-open
+	{
+		position: fixed;
+		top: 4.4rem; right: .5rem;
+		width: 250px;
+		min-height: 280px;
+		height: auto;
+		background-color: #fff;
+		z-index:8;
+		text-align: center;
+		display: block;
+		border-radius: 10px;
+		box-shadow: 7px 7px 6px rgba(70, 70, 72, .16);
+	}
+
+	.avatar-header
+	{
+		height: 20%;
+	}
+
+	.avatar-body
+	{
+		height: 120px;
+	}
+
+
+
+	.avatar-header
+	{
+		width: 100%;
+		height: 35%;
+		background: url(../img/bg-avatar.jpg);
+		background-size: cover;
+		padding-top: 25px; 
+		padding-bottom: 10px;
+		border-top-right-radius: 10px;
+		border-top-left-radius: 10px;
+	}
+
+	.avatar-pic
+	{
+		width: 80px;
+		margin: auto;
+		height: 80px;
+		cursor: pointer;
+	}
+
+	.avatar-img-img
+	{
+		width: 100%;
+		height: 100%;
+		border-radius: 50%;
+		background-color: #fff;
+		text-align: center;
+		margin: auto;
+		font-weight: bold;
+	    font-size: 25px;
+	    color: #00051e;
+	    line-height: 80px;
+	}
+
+	.avatar-name
+	{
+		padding-top: 20px;
+	}
+
+	.avatar-footer
+	{
+		background-color: #fdfbfb;
+		width: 88%;
+		margin: auto;
+	}
+
+	.footer-a-left
+	{
+		width: 50%;
+		float: left;
+		text-align: left;
+	}
+
+	.footer-a-right
+	{
+		width: 50%;
+		float: right;
+		text-align: right;
+	}
+
+	.avatar-link
+	{
+		text-decoration: none;
+		font-weight: 530;
+	}
+
+	.avatar-link:hover
+	{
+		color: #FAC202;
+	}
+}

@@ -1,0 +1,55 @@
+{% extends '::layout_user.html.twig' %}
+
+{% block stylesheets %}
+
+<link rel="stylesheet" type="text/css" href="{{ asset('user_assets/css/style-reservation.css') }}">
+
+{% endblock %}
+
+
+{% block body %}
+
+
+
+<div>
+	<div class="banniere"></div>
+	<div class="content-b">	
+	<div class="table-wrap">
+		<table class="table">
+			<thead>
+				<tr>
+					<th>{{ 'Date'|trans }}</th>
+					<th>{{ 'Référence'|trans }}</th>
+					<th>{{ 'Nom'|trans }}</th>
+					<th>{{ 'Itinéraire'|trans }}</th>
+					<th>{{ 'Type'|trans }}</th>
+					<th>{{ 'Numéro de place'|trans }}</th>
+					<th>{{ 'Status'|trans }}</th>
+				</tr>
+			</thead>
+			<tbody>
+			{% if data is defined and data|length > 0 %}
+			{% for d in data %}
+			<tr class="alert" role="alert">
+				<td>{{ d.reservation.dateHeure|date('d/m/Y') }}</td>
+				<td>{{ d.reservation.transaction }}</td>
+				<td>{{ d.reservation.nom }}</td>
+				<td>{{ d.reservation.trajet.itinerairecoop.itineraire.depart }} - {{ d.reservation.trajet.itinerairecoop.itineraire.destination }}</td>
+				<td>VIP</td>
+				<td>{{ d.reservation.numPlace }}</td>
+				{% if d.reservation.statut == 1 %}
+				<td class="status"><span class="active">Active</span></td>
+				{% else %}
+				<td class="status"><span class="waiting">Rembourse</span></td>
+				{% endif %}
+			</tr>
+			{% endfor %}
+			{% else %}
+				<tr><td colspan="7"<center>Aucune reservation effectuee</center></td></tr>
+			{% endif %}
+		</tbody>
+	</table>
+	</div>
+	</div>
+</div>
+{% endblock %}

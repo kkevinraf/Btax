@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>B'tax</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="">
+	<link rel="stylesheet" type="text/css" href="{{ asset('user_assets/css/styles-ind.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ asset('user_assets/css/signup.css') }}">
+</head>
+<style type="text/css">
+	form
+	{
+		width: 100%;
+		height: 100%;
+	}
+</style>
+<body>
+	<!-----------------------------Header------------------------------------>
+	<header class="topbar-c">
+		<div class="nav-c">
+			<!-----------------------------Header Left------------------------------------>
+			<div class="nav-c-left">
+				<div class="logo-place">
+					<img src="{{ asset('user_assets/img/logo-f.png') }}" class="logo-place-img">
+				</div>
+			</div>
+			<!-----------------------------End Header Left------------------------------------>
+
+
+			<!-----------------------------Header Right------------------------------------>
+			<div class="nav-c-right">
+				<div class="nav-c-right-space">
+					<ul>
+						<li><button class="stl-btn-log">Connexion</button></li>
+						<li><button class="logactive">Inscription</button></li>
+					</ul>
+				</div>
+			</div>
+			<!-----------------------------End Header Right------------------------------------>
+
+		</div>
+	</header>
+	<!-----------------------------End Header------------------------------------>
+	<!-----------------------------Body 1------------------------------------>
+
+	<div class="body1">
+		<div class="b-body">
+			<form action="{{ path('fos_user_registration_register') }}" {{ form_enctype(form) }} method="POST">
+			<div class="form-login">
+				<div class="form-login-body">
+					<div class="group-input-login">
+						<span class="login-label">Nom </span><br>
+						{{ form_widget(form.username, { 'attr': {'class':'login-input', 'placeholder':'Votre nom'} }) }}
+					</div>
+				</div>
+				<div class="form-login-body">
+					<div class="group-input-login">
+						<span class="login-label">Adresse e-mail </span><br>
+						<input class="login-input" type="text" name="">
+					</div>
+				</div>
+				<div class="form-login-body">
+					<div class="group-input-login">
+						<span class="login-label">Mot de passe </span><br>
+						<input class="login-input" type="text" name="">
+					</div>
+				</div>
+				<div class="form-login-body">
+					<div class="group-input-login">
+						<input class="login-button" type="submit" name="" value="S'inscrire">
+					</div>
+				</div>
+				<div class="form-login-footer">
+					Deja membre ? <a href="#">Connectez-vous</a>
+				</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript" src="js/jquery-3.4.1.min.js') }}"></script>
+	<script type="text/javascript" src="js/script.js') }}"></script>
+	<script type="text/javascript" src="js/script-number.js') }}"></script>
+</html>

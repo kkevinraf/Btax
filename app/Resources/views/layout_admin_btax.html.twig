@@ -1,0 +1,195 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Btax</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    {% block stylesheets %}{% endblock %}
+  
+    <link rel="stylesheet" href="{{ asset('admin_assets/css/jquery.dataTables.min.css') }}">
+   
+
+
+     <!-- Bootstrap CSS
+        ============================================ -->
+    <link rel="stylesheet" href="{{ asset('admin_assets/css/bootstrap.min.css') }}">
+    <!-- font awesome CSS
+        ============================================ -->
+    <link rel="stylesheet" href="{{ asset('admin_assets/css/font-awesome.min.css') }}">
+
+    <!-- Notika icon CSS
+        ============================================ -->
+    <link rel="stylesheet" href="{{ asset('admin_assets/css/notika-custom-icon.css') }}">
+    
+    <!-- main CSS
+        ============================================ -->
+    <link rel="stylesheet" href="{{ asset('admin_assets/css/chosen/chosen.css') }}">
+    
+    <!-- main CSS
+        ============================================ -->
+    <link rel="stylesheet" href="{{ asset('admin_assets/css/main.css') }}">
+    <!-- style CSS
+        ============================================ -->
+    <link rel="stylesheet" href="{{ asset('admin_assets/style.css') }}">
+    <!-- responsive CSS
+        ============================================ -->
+    <link rel="stylesheet" href="{{ asset('admin_assets/css/responsive.css') }}">
+
+    
+</head>
+
+
+   <div class="header-top-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                    <div class="logo-area">
+                        <img src="{{ asset('user_assets/img/logo-f.png') }}" style="height: 35px; width:35px;">
+                    </div>
+                </div>
+                <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+                    <div class="header-top-menu">
+                        <ul class="nav navbar-nav notika-top-nav">
+                            <li class="nav-item">
+                                <a href="{{ path('btax_link_myaccount') }}" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><span><i class="notika-icon notika-settings"></i></span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ path('fos_user_security_logout') }}" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><span><i class="notika-icon notika-close"></i></span></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Header Top Area -->
+   
+   <!-- Main Menu area start-->
+    <div class="main-menu-area mg-tb-40">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <ul class="nav nav-tabs notika-menu-wrap menu-it-icon-pro">
+                        <li {% if p_coop is defined and p_coop == 'active' %} class="active" {% endif %}><a data-toggle="tab" href="../#Cooperative"><i class="notika-icon notika-finance"></i> Cooperative </a></a>
+                        </li>
+                        <li {% if p_trajet is defined and p_trajet == 'active' %} class="active" {% endif %}><a href="{{ path('adminbtax_searchtrajet') }}"><i class="notika-icon notika-map"></i> Trajet </a>
+                        </li>
+                        <li {% if p_itineraire is defined and p_itineraire == 'active' %} class="active" {% endif %}><a href="{{ path('btax_link_itineraire') }}"><i class="notika-icon notika-calendar"></i> Itineraire </a>
+                        </li>
+                        <li {% if p_reservation is defined and p_reservation == 'active' %} class="active" {% endif %}><a data-toggle="tab" href="../#Reservation"><i class="notika-icon notika-credit-card"></i> Reservation </a>
+                        </li>
+                        <li><a data-toggle="tab" href="../#Membre"><i class="notika-icon notika-support"></i> Membre </a>
+                        </li>
+                        <li {% if p_avis is defined and p_avis == 'active' %} class="active" {% endif %}><a data-toggle="tab" href="../#Avis"><i class="notika-icon notika-chat"></i> Avis</a>
+                        </li>
+                    </ul>
+
+                    <div class="tab-content custom-menu-content">
+
+                        <div id="Avis" class="tab-pane in{% if p_avis is defined and p_avis == 'active' %} active{% endif %} notika-tab-menu-bg animated flipInX">
+                            <ul class="notika-main-menu-dropdown">
+                                <li><a href="{{ path('adminbtax_avis_tovalidate') }}">A valider</a></li>
+                                <li><a href="{{ path('adminbtax_avis_tomoderate') }}">Signaler</a></li>
+                            </ul>
+                        </div>
+
+                        <div id="Cooperative" class="tab-pane in{% if p_coop is defined and p_coop == 'active' %} active{% endif %} notika-tab-menu-bg animated flipInX">
+                            <ul class="notika-main-menu-dropdown">
+                                <li><a href="{{ path('cooperative_new') }}">Nouveau</a></li>
+                                <li><a href="{{ path('cooperative') }}">Liste</a></li>
+                            </ul>
+                        </div>    
+
+
+                        <div id="Reservation" class="tab-pane in{% if p_reservation is defined and p_reservation == 'active' %} active{% endif %} notika-tab-menu-bg animated flipInX">
+                            <ul class="notika-main-menu-dropdown">
+                                <li><a href="{{ path('adminbtax_reservation_search') }}">Recherche</a></li>
+                                <li><a href="{{ path('adminbtax_reservation_searchadvanced') }}">Recherche avancee</a></li>
+                            </ul>
+                        </div>
+
+
+                        <div id="Membre" class="tab-pane notika-tab-menu-bg animated flipInX">
+                            <ul class="notika-main-menu-dropdown" style="width: 60%; margin: auto;">
+                                <br>
+                                <form action="{{ path('member_search') }}" method="POST">
+                                <li>
+                                    <div class="col-lg-35 col-md-35 col-sm-35 col-xs-35">
+                                        <div class="form-example-int form-example-st">
+                                            <div class="form-group">
+                                                <div class="nk-int-st">
+                                                    <input type="text" class="form-control input-sm" placeholder="Adresse e-mail ou nom d'utilisateur" style="width: 330px;" name="user">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="col-lg-35 col-md-35 col-sm-35 col-xs-35">
+                                        <div class="form-example-int form-example-st">
+                                            <div class="form-group">
+                                                <div class="nk-int-st">
+                                                    <select name="choice" class="form-control input-sm">
+                                                        <option value="email">Adresse e-mail</option>
+                                                        <option value="username">Nom d'utilisateur</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                </form>
+                            </ul>
+
+                            <br>
+                        </div>
+
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Main Menu area End-->
+
+    {% block body %}{% endblock %}    
+    
+    <script src="{{ asset('admin_assets/js/vendor/jquery-1.12.4.min.js') }}"></script>
+
+
+    <!-- Data Table JS
+        ============================================ -->
+    <script src="{{ asset('admin_assets/js/data-table/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('admin_assets/js/data-table/data-table-act.js') }}"></script>
+    
+
+
+    
+    <!-- bootstrap JS
+        ============================================ -->
+    <script src="{{ asset('admin_assets/js/bootstrap.min.js') }}"></script>
+    
+    
+    <!-- icheck JS
+        ============================================ -->
+    <script src="{{ asset('admin_assets/js/icheck/icheck.min.js') }}"></script>
+    <script src="{{ asset('admin_assets/js/icheck/icheck-active.js') }}"></script>
+    
+    
+    <!--  chosen JS
+        ============================================ -->
+    <script src="{{ asset('admin_assets/js/chosen/chosen.jquery.js') }}"></script>
+    
+    <!-- main JS
+        ============================================ -->
+    <script src="{{ asset('admin_assets/js/main.js') }}"></script>
+</body>
+
+</html>
+
+    {% block javascripts %}{% endblock %}
+</html>

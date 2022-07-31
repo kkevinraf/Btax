@@ -1,0 +1,46 @@
+.place-reserve, .place-disponible, .chauffeur, .place-selectionne {
+    width: 40px;
+    height: 40px;
+    margin-right: 5px;
+    margin-bottom: 15px;
+    line-height: 40px;
+    text-align: center;
+    font-size: 16px;
+}
+
+.place-reserve {
+    background-color: #dee7ea;
+    border: 1px solid #dee7ea;
+    border-radius: 5px;
+    display: inline-block;
+}
+
+.place-disponible {
+    background-color: #fff;
+    border: 1px solid #02918d;
+    border-radius: 5px;
+    display: inline-block;
+}
+
+.place-selectionne {
+    background-color: #02918d;
+    border: 1px solid #02918d;
+    border-radius: 5px;
+    display: inline-block;
+}
+
+.chauffeur {
+    background: url(img/chaufeur.png) center no-repeat;
+    background-size: cover;
+    border-radius: 5px;
+    display: inline-block;
+}
+
+.card-itineraire-button {
+    color: #fff;
+    width: 80%;
+    margin-bottom: 5px;
+    background-color: #FEBD17;
+    border: 1px solid #FEBD17;
+    height: 40px;
+}

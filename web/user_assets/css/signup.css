@@ -1,0 +1,105 @@
+.b-body
+		{
+			width: 100%;
+			height: 100%;
+			padding-top: 150px;
+			display: flex;
+			flex-wrap: wrap;
+		}
+
+		.form-login
+		{
+			min-height: 300px;
+			height: auto;
+			width: 400px;
+			background: rgba(34, 34, 34, 0.8);
+			position: relative;
+			margin: auto;
+			padding-top: 30px;
+		}
+
+		.form-login-title
+		{
+			padding-top: 20px;
+			text-align: center;
+			color: #FAC202;
+			font-size: 23px;
+			text-decoration: bold;
+			height: auto;
+		}
+
+		.form-login-body
+		{
+			width: 90%;
+			margin: auto;
+			height: auto;
+		}
+
+		.login-button
+		{
+			background-color: #FAC202;
+			border: 1px solid #FAC202;
+			color:#fff;
+			font-size: 16px;
+			width: 100%;
+			height: 40px;
+			border-radius: 40px;
+			margin-top: 17px;
+		}
+
+		.group-input-login
+		{
+			width: 100%;
+			height: auto;
+			margin-top: 8px;
+
+		}
+
+		.login-label
+		{
+			color: #fff;
+			font-size: 15px;
+			font-weight: 500px;
+			margin-left: 4px;
+		}
+
+		.login-input
+		{
+			color: #04091d;
+			border: 1px solid #fff;
+			font-size: 14px;
+			width: 99%;
+			height: 40px;
+			border-radius: 10px;
+			padding-left: 3px;
+		}
+
+		.form-login-footer
+		{
+			width: 100%;
+			height: 40px;
+			text-align: center;
+			margin: 20px 0;
+			color: #fff;
+		}
+
+		.form-login-footer a
+		{
+			text-decoration: underline;
+			color: #fff;
+
+		}
+
+		.logactive
+		{
+			background-color: #FAC202;
+			border: 1px solid #FAC202;
+			color: #fff;
+		    width: 120px;
+		    text-decoration: none;
+		    border-radius: 20px;
+		    height: 35px;
+		    text-align: center;
+		    margin-top: 10px;
+		    font-size: 15px;
+		}

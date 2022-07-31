@@ -1,0 +1,41 @@
+run_search:
+    path:     /
+    defaults: { _controller: BookBundle:Search:runSearch }
+
+run_search_select:
+    path:     /{id}/select
+    defaults: { _controller: BookBundle:Search:selectTrajet }
+
+reservation_set_session:
+    path: /setsession/{id}/{nom}/{place}
+    defaults: { _controller: BookBundle:Search:setSession }
+    options:
+        expose: true
+
+reservation_register:
+    path: /registersession/{id}/{trajet}
+    defaults: { _controller: BookBundle:Search:registerSession }
+    options:
+        expose: true
+
+reservation_after_paiement:
+    path: /reservationAfterPaiement
+    defaults: { _controller: BookBundle:Search:reservationAfterPaiement }
+    options:
+        expose: true
+
+reservation_get_session:
+    path: /getsession
+    defaults: { _controller: BookBundle:Search:getSession }
+
+reservation_delete_session:
+    path: /deletesession
+    defaults: { _controller: BookBundle:Search:deleteSession }
+
+register_search:
+    path: /searchRegister/{data}
+    defaults: { _controller: BookBundle:Notification:searchRegister }
+
+testsession:
+    path: /testsession/{id}
+    defaults: { _controller: BookBundle:Search:testSession }

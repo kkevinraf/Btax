@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>B'tax</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="">
+	<link rel="stylesheet" type="text/css" href="{{ asset('user_assets/css/styles-ind.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ asset('user_assets/css/footer.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ asset('user_assets/css/counter-box.css') }}">
+</head>
+<body>
+	<!-----------------------------Header------------------------------------>
+	<header class="topbar-c">
+		<div class="nav-c">
+			<!-----------------------------Header Left------------------------------------>
+			<div class="nav-c-left">
+				<div class="logo-place">
+					<a href="{{ path('book_homepage') }}"><img src="{{ asset('user_assets/img/logo-f.png') }}" class="logo-place-img"></a>
+				</div>
+			</div>
+			<!-----------------------------End Header Left------------------------------------>
+
+
+			<!-----------------------------Header Right------------------------------------>
+			<div class="nav-c-right">
+				<div class="nav-c-right-space">
+					<ul>
+						<li><a href="{{ path('fos_user_security_login') }}"><button class="stl-btn-log">{{ 'Connexion'|trans }}</button></a></li>
+						<li><a href="{{ path('fos_user_registration_register') }}"><button class="stl-btn-log">{{ 'Inscription'|trans }}</button></a></li>
+					</ul>
+				</div>
+			</div>
+			<!-----------------------------End Header Right------------------------------------>
+
+		</div>
+	</header>
+	<!-----------------------------End Header------------------------------------>
+	<div class="banniere"></div>
+	<!-----------------------------Body 1------------------------------------>
+
+	<div class="body1">
+		<div class="form-search">
+			<form class="f-form-search-e" action="{{ path('search_log_out') }}" method="POST">
+
+				<div class="input-e">
+					<input list="villes" type="text" name="depart" class="input-search" placeholder="{{ 'Départ'|trans }}" required />
+				</div>
+
+				<div class="input-e">
+					<input list="villes" type="text" name="destination" class="input-search" placeholder="{{ 'Destination'|trans }}" required />
+				</div>
+
+				<datalist id="villes">
+					{% if villes|length !=  0 %}
+                        {% for a in villes %}
+                        	<option value="{{ a.localisation }}">
+                        {% endfor %}
+                    {% endif %}
+				</datalist>
+				
+				<div class="input-e">
+					<input type="date" name="date" class="input-search" placeholder="Date" required />
+				</div>
+
+				<div class="input-e">
+					<select class="input-search" name="cooperative" placeholder="Cooperative">
+						<option value="">TOUS</option>
+						{% if cooperatives|length !=  0 %}
+	                        {% for c in cooperatives %}
+	                        	<option value="{{ c.nom }}">{{ c.nom }}</option>
+	                        {% endfor %}
+                   		{% endif %}
+					</select>
+				</div>
+				
+				<div class="input-e-b">
+					<div class="number-count">
+						<div class="number-count-l" onclick="prevNum()">-</div>
+						<div class="number-count-c" id="number-count-c">
+							<span style="display: initial;">1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span></div>
+						<div class="number-count-r" onclick="nextNum()">+</div>
+						<input type="hidden" name="nbrPlace" id="nbrPlace" value="1">
+					</div>
+				</div>
+				
+				<div class="input-e">
+					<input type="submit" name="" class="input-search-btn">
+				</div>
+			</form>
+		</div>
+	</div>
+
+	<!-----------------------------End Body 1------------------------------------>
+	
+	<div class="about-us">
+		<div class="abouts-us-content">	
+			<div class="abouts-us-title">
+				<div class="tiret-aut"></div>&nbsp;A propos de nous
+			</div>
+			<div class="abouts-us-content-c">
+				<div id="about-us-card" class="about-us-card-1">
+					<div class="about-us-picture">
+						<img src="{{ asset('user_assets/img/rapide.png') }}" class="about-us-picture-img">
+					</div>
+					<div class="about-us-card-title">
+						Rapide
+					</div>
+					<div class="about-us-card-content">
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae quidem blanditiis delectus corporis.
+					</div>
+				</div>
+				<div id="about-us-card" class="about-us-card-2">
+					<div class="about-us-picture">
+						<img src="{{ asset('user_assets/img/securise.png') }}" class="about-us-picture-img">
+					</div>
+					<div class="about-us-card-title">
+						Sécurisé
+					</div>
+					<div class="about-us-card-content">
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae quidem blanditiis delectus corporis.
+					</div>
+				</div>
+				<div id="about-us-card" class="about-us-card-3">
+					<div class="about-us-picture">
+						<img src="{{ asset('user_assets/img/facile.png') }}" class="about-us-picture-img">
+					</div>
+					<div class="about-us-card-title">
+						Facile
+					</div>
+					<div class="about-us-card-content">
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae quidem blanditiis delectus corporis.
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="footer">
+		<div class="footer-top">
+			<div class="footer-top-card">
+				<div class="footer-top-card-title">
+					Termes et conditions d'utilisations
+				</div>
+				<div class="footer-top-card-content">
+					<ul>
+						<li><a href="#">Confidentialités de données</a></li>
+						<li><a href="#">Conditions générales d'utilisation</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="footer-top-card">
+				<div class="footer-top-card-title">
+					Information
+				</div>
+				<div class="footer-top-card-content">
+					<ul>
+						<li><a href="#">Contactez-nous</a></li>
+						<li><a href="#">Contactez le Service Client</a></li>
+						<li><a href="#">Aide</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="footer-top-card" >
+				<div class="footer-top-card-lang">
+					Langue :
+					<select class="footer-lang" id="langue-home">
+						{% if langue is defined %}
+							<option value="en_EN" {% if langue == 'en_EN' %}selected{% endif %}>Anglais</option>
+							<option value="fr_FR" {% if langue == 'fr_FR' %}selected{% endif %}>Français</option>
+							<option value="mg_MG" {% if langue == 'mg_MG' %}selected{% endif %}>Malagasy</option>
+						{% endif %}
+
+					</select>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script type="text/javascript" src="{{ asset('user_assets/js/jquery-3.4.1.min.js') }}"></script>
+	<script type="text/javascript" src="{{ asset('user_assets/js/script.js') }}"></script>
+	<script type="text/javascript" src="{{ asset('user_assets/js/script-number.js') }}"></script>
+	<script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+    <script src="{{ path('fos_js_routing_js', {"callback": "fos.Router.setData"}) }}"></script>
+	<script type="text/javascript" src="{{ asset('user_assets/js/langue.js') }}"></script>
+</html>

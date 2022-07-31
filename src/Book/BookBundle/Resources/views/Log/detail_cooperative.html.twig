@@ -1,0 +1,306 @@
+{% extends '::layout_user.html.twig' %}
+
+{% block stylesheets %}
+<link rel="stylesheet" type="text/css" href="{{ asset('user_assets/css/style-card-i.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('user_assets/css/filter-i-style.css') }}">
+
+<link rel="stylesheet" type="text/css" href="{{ asset('user_assets/css/detail-cooperative.css') }}">
+
+{% endblock %}
+
+{% block body %}
+
+<div>
+		<div class="banniere"></div>
+		<div class="content-b-b">
+			
+			<!-------------------------------------------------------------------------->
+
+			<!--------------------------------Headder------------------------------------------>
+
+
+			<div class="h-c-details">
+			{% set id_coop = 0 %}
+				{% for coop in cooperative %}
+				{% set id_coop = coop.id %}
+				<div class="h-c-d-content">
+					<div class="left-h-c-d">
+						<div class="left-h-c-d-img">
+							<div class="left-h-c-d-img-i">
+								<img src="{{ asset('uploads/logo/'~coop.logo) }}">
+							</div>
+						</div>
+					</div>	
+					<div class="right-h-c-d">
+						<div class="right-h-c-d-content">
+							<div class="name-h-c-d">{{ coop.nom }}</div>
+							<div class="right-h-c-d-content-b">
+							{{ coop.contact }}
+							</div>
+							<div class="right-h-c-d-content-b">
+								{{ coop.adresse }}
+							</div>
+						</div>
+					</div>
+				</div>	
+				{% endfor %}
+				<div class="h-c-d-footer">
+					<div class="left-h-c-d-footer active">
+						<div class="footer-text active" id="l-f-l-ft">+100</div>Itineraire
+					</div>
+					<div class="right-h-c-d-footer">
+						<div class="footer-text" id="r-f-l-ft">4,5</div>Avis
+					</div>
+				</div>
+			</div>
+			<!-----------------------------------End Headder--------------------------------------->
+
+
+			<div class="cooperative-d-body-mobile">
+				<div class="cp-left-content show">
+					
+<!-----------------------------Card------------------------------------>
+
+
+	{% if itineraires is defined and itineraires|length > 0 %}
+
+	{% set n = itineraires|length - 1 %}
+	{% for i in 0..n %}
+	
+
+		<div class="card-it">
+		{% set url = asset('uploads/logo/'~itineraires[i]['logoitineraire']) %}
+		<div class="card-it-header" style="background: url({{ asset('uploads/localisation/'~itineraires[i]['logoitineraire']) }});background-size: cover;background-repeat: no-repeat;">
+			<div class="card-it-header-opacity"></div>
+			<div class="card-it-header-logo">
+				<img src="{{ asset('uploads/logo/'~itineraires[i]['cooperativelogo']) }}" class="card-it-header-logo-img">
+			</div>
+		</div>
+		<div class="card-it-body">
+			<div class="card-it-body-destination">
+				{{ itineraires[i]['itineraire'] }}
+			</div>
+			<div class="card-it-body-cooperative-name">
+				<a href="#" class="card-it-body-link">{{ itineraires[i]['cooperative'] }}</a>
+			</div>
+		</div>
+		<div class="card-it-tarif">
+		<br/>
+		{% for itinerairecoop in itinerairecoops%}
+			{% if itinerairecoop.itineraire.id == itineraires[i]['iditineraire'] %}
+				<div class="group-info-body-c-i-destination-tarif">
+					<div class="label-c-i-destination-tarif">{{ itinerairecoop.place.typeplace }}</div><div class="prix-c-i-destination-tarif">{{ itinerairecoop.prix }} Ar</div>
+				</div>
+			{% endif %}
+		{% endfor %}
+			
+		</div>
+		<div class="button-body-c-i">
+			<a href=""><input type="submit" name="" value="Plus" class="button-body-c-i-btn"></a>
+		</div>
+	</div>
+
+
+
+	{% endfor %}
+	{% endif %}
+
+
+
+	
+<!-----------------------------End card------------------------------------>
+
+
+				</div>
+				<div class="cp-right-content hide">
+					<div class="cp-right-content-list">
+						<div class="link-add-test">
+							
+
+							<div class="item-list-avis">
+								<div class="add-avis">
+									<a href="#" class="add-avis-link">{% if myavis is defined and myavis|length > 0 %}Modifier mon avis{% else %}Ajouter mon avis{% endif %}</a>
+								</div>
+
+
+				{% if avis is defined and avis|length > 0 %}
+
+					{% for avi in avis %}
+							<!--Liste avis-->
+							<div class="item-lists-avis-list">
+								<div class="top-item">
+									<div class="item-lists-avis-list-left">
+										<div class="avatar-name-c">KR</div>
+									</div>
+									<div class="item-lists-avis-list-right">
+										<div class="comment-name">{{ avi.utilisateur }}</div>
+										<div class="comment-star">
+											<div class="card-star-e">
+												{% set l = 30*avi.note %}
+												<div id="value-list" style="width: {{l}}px;">
+													<div id="glob-list">
+														<img id="tde-list_1" src="{{ asset('user_assets/img/star.png') }}" class="tde-list">
+														<img id="tde-list_2" src="{{ asset('user_assets/img/star.png') }}" class="tde-list">
+														<img id="tde-list_3" src="{{ asset('user_assets/img/star.png') }}" class="tde-list">
+												      	<img id="tde-list_4" src="{{ asset('user_assets/img/star.png') }}" class="tde-list">
+														<img id="tde-list_5" src="{{ asset('user_assets/img/star.png') }}" class="tde-list">    
+													</div>
+													
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="bottom-item">
+									<div class="comment-content">
+										{{ avi.avis }}
+									</div>
+								</div>
+							</div>
+						{% endfor %}
+						<!-----------------------------------End list--------------------------------------->
+
+
+						{% if avis|length > 4 %}
+						<div class="view-more">
+							<a href="{{ path('book_all_avis', { 'id': id_coop }) }}"><button class="see-more-btn">Voir tous les avis</button></a>
+						</div>
+						{% endif %}
+
+					{% else %}
+					<div style="width: 96%; min-height: 45px; height: auto; margin: auto; text-align: center; margin-top: 10px;">
+						Aucun avis pour le moment :)
+					</div>
+
+					{% endif %}
+				
+				</div>
+
+
+
+
+
+
+
+
+
+
+
+						</div>
+					</div>
+					<div class="cp-right-content-formadd hide">
+
+						<div class="item-add-avis">
+							<div class="form-avis">
+							{% set len = 150 %}
+							{% set note = 5 %}
+							{% set comment = "" %}
+							{% if myavis is defined and myavis|length > 0 %}
+								<form action="{{ path('book_update_avis') }}" method="POST">
+								<input type="hidden" name="id" value="{{ myavis.id }}">
+								{% set len = 30 * myavis.note %}{% set len = 30 * myavis.note %}
+								{% set comment = myavis.avis %}
+								{% set note = myavis.note %}
+							{% else %}
+								<form action="{{ path('book_add_avis') }}" method="POST">
+								<input type="hidden" name="cooperative" value="{{ id_coop }}">
+							{% endif %}
+								Votre note : <br>
+								<div id="value-add">
+									<div id="glob">
+										<img id="tde_1" src="{{ asset('user_assets/img/star.png') }}" class="tde">
+										<img id="tde_2" src="{{ asset('user_assets/img/star.png') }}" class="tde">
+										<img id="tde_3" src="{{ asset('user_assets/img/star.png') }}" class="tde">
+								     	<img id="tde_4" src="{{ asset('user_assets/img/star.png') }}" class="tde">
+										<img id="tde_5" src="{{ asset('user_assets/img/star.png') }}" class="tde">    
+									</div>
+									<input type="hidden" name="note_member" value="{{ note }}" id="note_member">
+								</div>
+								<textarea class="text-avis" name="avis">{{ comment }}</textarea>
+								<input type="submit" name="" value="Envoyer" class="btn-send-avis">
+
+								<div class="back-avis">
+									<a href="#" class="back-avis-link">Retour sur les avis</a>
+								</div>
+							</form>	
+							</div>
+
+						</div>
+
+					</div>
+				</div>
+			</div>
+
+
+
+
+			<div class="cooperative-d-body-desktop">
+
+				<div class="list-itineraire-cooperative-d">
+					
+					<!-----------------------------Card------------------------------------>
+
+	{% if itineraires is defined and itineraires|length > 0 %}				
+	{% set n = itineraires|length -1 %}
+	{% for i in 0..n %}
+	
+
+		<div class="card-it">
+		{% set url = asset('uploads/logo/'~itineraires[i]['logoitineraire']) %}
+		<div class="card-it-header" style="background: url({{ asset('uploads/localisation/'~itineraires[i]['logoitineraire']) }});background-size: cover;background-repeat: no-repeat;">
+			<div class="card-it-header-opacity"></div>
+			<div class="card-it-header-logo">
+				<img src="{{ asset('uploads/logo/'~itineraires[i]['cooperativelogo']) }}" class="card-it-header-logo-img">
+			</div>
+		</div>
+		<div class="card-it-body">
+			<div class="card-it-body-destination">
+				{{ itineraires[i]['itineraire'] }}
+			</div>
+			<div class="card-it-body-cooperative-name">
+				<a href="#" class="card-it-body-link">{{ itineraires[i]['cooperative'] }}</a>
+			</div>
+		</div>
+		<div class="card-it-tarif">
+		<br/>
+		{% for itinerairecoop in itinerairecoops%}
+			{% if itinerairecoop.itineraire.id == itineraires[i]['iditineraire'] %}
+				<div class="group-info-body-c-i-destination-tarif">
+					<div class="label-c-i-destination-tarif">{{ itinerairecoop.place.typeplace }}</div><div class="prix-c-i-destination-tarif">{{ itinerairecoop.prix }} Ar</div>
+				</div>
+			{% endif %}
+		{% endfor %}
+			
+		</div>
+	</div>
+
+
+
+	{% endfor %}
+	{% endif %}
+
+
+	
+<!-----------------------------End card------------------------------------>
+
+				</div>
+
+				
+<!-----------------------------End card------------------------------------>
+
+				</div>
+				<div class="link-desktop-b">
+					<div class="link-desktop-b-show">
+						<a href="{{ path('book_all_avis', { 'id': id_coop }) }}"><div style="display: flex;flex-wrap: nowrap; color: #fff; width: 80%; margin: auto; line-height: 40px;"><div class="icone-avis"></div>Voir les avis</div></a>
+					</div>
+				</div>
+			</div>
+
+{% endblock %}
+
+{% block javascripts %}
+
+<script type="text/javascript" src="{{ asset('user_assets/js/detail-cooperative.js') }}"></script>
+<script type="text/javascript" src="{{ asset('user_assets/js/script-star.js') }}"></script>
+
+{% endblock %}

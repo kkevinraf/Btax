@@ -1,0 +1,168 @@
+<?php
+
+namespace Book\BookBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Notification
+ *
+ * @ORM\Table()
+ * @ORM\Entity(repositoryClass="Book\BookBundle\Repository\NotificationRepository")
+ */
+class Notification
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="date", type="date")
+     */
+    private $date;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="statut", type="integer")
+     */
+    private $statut;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="nbrResult", type="integer")
+     */
+    private $nbrResult;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Utilisateurs\UtilisateursBundle\Entity\Utilisateurs")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $utilisateur;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Btax\BtaxBundle\Entity\Localisation")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $destination;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Btax\BtaxBundle\Entity\Localisation")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $depart;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Btax\BtaxBundle\Entity\Cooperative")
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $cooperative;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Cooperative\CooperativeBundle\Entity\Place")
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $place;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="nbrPlace", type="integer")
+     */
+    private $nbrPlace;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="horaire", type="integer")
+     */
+    private $horaire;
+
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set date
+     *
+     * @param \DateTime $date
+     * @return Notification
+     */
+    public function setDate($date)
+    {
+        $this->date = $date;
+
+        return $this;
+    }
+
+    /**
+     * Get date
+     *
+     * @return \DateTime 
+     */
+    public function getDate()
+    {
+        return $this->date;
+    }
+
+    /**
+     * Set statut
+     *
+     * @param integer $statut
+     * @return Notification
+     */
+    public function setStatut($statut)
+    {
+        $this->statut = $statut;
+
+        return $this;
+    }
+
+    /**
+     * Get statut
+     *
+     * @return integer 
+     */
+    public function getStatut()
+    {
+        return $this->statut;
+    }
+
+    /**
+     * Set nbrResult
+     *
+     * @param integer $nbrResult
+     * @return Notification
+     */
+    public function setNbrResult($nbrResult)
+    {
+        $this->nbrResult = $nbrResult;
+
+        return $this;
+    }
+
+    /**
+     * Get nbrResult
+     *
+     * @return integer 
+     */
+    public function getNbrResult()
+    {
+        return $this->nbrResult;
+    }
+}

@@ -1,0 +1,80 @@
+{% extends '::layout_admin_cooperative.html.twig' %}
+
+{% block body -%}
+ <!-- Main Menu area End-->
+    
+   <div class="container">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="form-example-wrap mg-t-30">
+                <div class="cmp-tb-hd cmp-int-hd">
+                     <h2>Recherche trajet</h2>
+                </div>
+
+                <form action="{{ path('trajet_search_coop') }}" method="POST">
+               <div class="form-example-int form-horizental">
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-lg-2 col-md-3 col-sm-3 col-xs-12">
+                                <label class="hrzn-fm">Date :</label>
+                            </div>
+                            <div class="col-lg-8 col-md-7 col-sm-7 col-xs-12">
+                                <input type="date" class="form-control" name="date">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-example-int form-horizental">
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-lg-2 col-md-3 col-sm-3 col-xs-12">
+                                <label class="hrzn-fm">Depart :</label>
+                            </div>
+                            <div class="col-lg-8 col-md-7 col-sm-7 col-xs-12">
+                                <div class="chosen-select-act fm-cmp-mg">
+                                    <select class="chosen" data-placeholder="Choose a Country..." name="depart">
+                                            <option value="0">Tous</option>
+                                            {% for localisation in localisations %}
+                                            <option value="{{ localisation.id }}">{{ localisation.localisation }}</option>
+                                            {% endfor %}
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-example-int form-horizental">
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-lg-2 col-md-3 col-sm-3 col-xs-12">
+                                <label class="hrzn-fm">Destination :</label>
+                            </div>
+                            <div class="col-lg-8 col-md-7 col-sm-7 col-xs-12">
+                                <div class="chosen-select-act fm-cmp-mg">
+                                    <select class="chosen" data-placeholder="Choose a Country..." name="destination">
+                                            <option value="0">Tous</option>
+                                            {% for localisation in localisations %}
+                                            <option value="{{ localisation.id }}">{{ localisation.localisation }}</option>
+                                            {% endfor %}
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-example-int mg-t-15">
+                    <div class="row">
+                        <div class="col-lg-2 col-md-3 col-sm-3 col-xs-12">
+                        </div>
+                        <div class="col-lg-8 col-md-7 col-sm-7 col-xs-12">
+                            <input type="submit" class="btn btn-success notika-btn-success waves-effect" value="Recherche">
+                        </div>
+                    </div>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+   
+     {% endblock %}

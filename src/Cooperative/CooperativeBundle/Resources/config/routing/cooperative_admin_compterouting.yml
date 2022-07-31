@@ -1,0 +1,19 @@
+member_search_cooperative:
+    pattern:  /
+    defaults: { _controller: "CooperativeBundle:MembreCooperative:searchMembre" }
+
+membre_show_cooperative:
+    pattern:  /{id}/show
+    defaults: { _controller: "CooperativeBundle:MembreCooperative:detailsMembre" }
+
+membre_avis_cooperative:
+    pattern:  /avis
+    defaults: { _controller: "CooperativeBundle:MembreCooperative:avisMembre" }
+
+membre_avis_signale:
+    pattern:  /avis/{id}/signale
+    defaults: { _controller: "CooperativeBundle:MembreCooperative:avisSignale" }
+
+membre_myaccount_cooperative:
+    pattern:  /myaccount
+    defaults: { _controller: "CooperativeBundle:CompteAdmin:myaccount" }

@@ -1,0 +1,15 @@
+cooperative_reservation_search:
+    pattern:  /search
+    defaults: { _controller: "CooperativeBundle:ReservationCooperative:search" }
+
+cooperative_reservation_searchadvanced:
+    pattern:  /searchadvanced
+    defaults: { _controller: "CooperativeBundle:ReservationCooperative:searchAdvanced" }
+
+cooperative_reservation_searchrun:
+    pattern:  /search/run
+    defaults: { _controller: "CooperativeBundle:ReservationCooperative:searchRun" }
+
+cooperative_reservation_searchadvancedrun:
+    pattern:  /searchadvanced/run
+    defaults: { _controller: "CooperativeBundle:ReservationCooperative:searchAdvancedRun" }

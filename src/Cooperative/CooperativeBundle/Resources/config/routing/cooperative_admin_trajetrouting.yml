@@ -1,0 +1,21 @@
+trajet:
+    pattern:  /
+    defaults: { _controller: "CooperativeBundle:TrajetAdmin:index" }
+
+trajet_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "CooperativeBundle:TrajetAdmin:detailSearch" }
+
+trajet_new:
+    pattern:  /new
+    defaults: { _controller: "CooperativeBundle:TrajetAdmin:new" }
+
+trajet_create:
+    pattern:  /create
+    defaults: { _controller: "CooperativeBundle:TrajetAdmin:create" }
+    requirements: { _method: post }
+
+trajet_search_coop:
+    pattern:  /searchrun
+    defaults: { _controller: "CooperativeBundle:TrajetAdmin:runSearch" }
+    requirements: { _method: post }

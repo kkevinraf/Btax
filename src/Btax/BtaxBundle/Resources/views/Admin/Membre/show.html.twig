@@ -1,0 +1,80 @@
+{% extends '::layout_admin_btax.html.twig' %}
+
+{% block body -%}
+
+ <!-- Start Email Statistic area-->
+    <div class="notika-email-post-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                    <div class="contact-inner">
+                        <div class="contact-list">
+                            <div class="contact-win">
+                                <div class="contact-img">
+                                    
+                                </div>
+                            </div>
+                            <div class="contact-ctn">
+                                <div class="contact-ad-hd">
+                                    <h2>{{ entity.username }}</h2>
+                                    <p class="ctn-ads">{{ entity.id }} (Actif)</p>
+                                </div>
+                                <p>
+                                    {{ entity.email }} <br>
+                                    Date de derniere connexion : 31/08/2021
+
+                                </p>
+                            </div>
+                        </div>
+                    </div>    
+                </div>
+                
+                <div class="col-lg-8 col-md-6 col-sm-6 col-xs-12">
+                    <div class="contact-inner">
+                        <div class="contact-hd widget-ctn-hd">
+                            <h2>Liste reservation</h2>
+                            <hr>
+                        </div>
+                        <div class="contact-dt">
+                            <div class="table-responsive">
+                            {% if reservation is defined and reservation|length != 0 %}
+                            <table id="data-table-basic" class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Date</th>
+                                        <th>Itineraire</th>
+                                        <th>Type</th>
+                                        <th>Transaction</th>
+                                        <th>Prix</th>
+                                        <th>Status</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for res in reservation %}
+                                    <tr>
+                                        <td>{{ res.reservation.dateheure|date }}</td>
+                                        <td><a href="{{ path('adminbtax_detailtrajet', { 'id': res.reservation.trajet.id }) }}">{{ res.reservation.trajet.itinerairecoop.itineraire.depart }} - {{ res.reservation.trajet.itinerairecoop.itineraire.destination }}</a></td>
+                                        <td>{{ res.reservation.trajet.itinerairecoop.place }}</td>
+                                        <td>{{ res.reservation.transaction }}</td>
+                                        <td>{{ res.reservation.montant }} Ar</td>
+                                        <td>Validate</td>
+                                        <td><i class="notika-icon notika-sent"></i></td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                            {% else %}
+                                <center>Aucune reservation</center>
+                            {% endif %}
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Email Statistic area-->
+
+
+{% endblock %}

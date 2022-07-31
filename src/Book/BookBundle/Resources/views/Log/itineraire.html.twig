@@ -1,0 +1,109 @@
+{% extends '::layout_user.html.twig' %}
+
+{% block stylesheets %}
+<link rel="stylesheet" type="text/css" href="{{ asset('user_assets/css/style-card-i.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('user_assets/css/filter-i-style.css') }}">
+{% endblock %}
+
+{% block body %}
+<div>
+	<div class="banniere"></div>
+	<div class="content-b">
+	<!-----------------------------Filter------------------------------------>
+	<div class="filter">
+		<div class="filter-img-leave"></div>
+		<div class="filter-img"></div>
+	</div>
+	<div class="filter-form">
+		<div class="filter-form-header">
+			Voulez-vous filtrer la liste ?
+		</div>
+		<div class="filter-form-content">
+			<div class="filter-form-content-title">
+				Veuillez renseigner les informations suivantes svp
+			</div>
+			<div class="filter-form-content-form">
+				<form action="{{ path('book_filter_itineraire') }}" method="POST">
+					<div class="filter-form-content-form-input">
+						<input list="villes" type="text" name="depart" placeholder="Départ" class="filter-form-content-form-input-i" required />
+					</div>
+					<div class="filter-form-content-form-input">
+						<input list="villes" type="text" name="destination" placeholder="Destination" class="filter-form-content-form-input-i" required />
+					</div>
+					<div class="filter-form-content-form-input">
+						<input type="submit" name="" value="Valider" class="filter-form-content-form-input-b">
+					</div>
+					<datalist id="villes">
+						{% if villes|length !=  0 %}
+	                        {% for a in villes %}
+	                        	<option value="{{ a.localisation }}">
+	                        {% endfor %}
+	                    {% endif %}
+					</datalist>
+				</form>
+			</div>
+		</div>
+	</div>		
+	<!-----------------------------End Filter------------------------------------>
+	<!-----------------------------Card------------------------------------>
+
+	{% set n = itineraires|length -1 %}
+	{% for i in 0..n %}
+		{% set x = 0 %}
+		{% for itinerairecoop in itinerairecoops %}
+			{% if itinerairecoop.itineraire.id == itineraires[i]['iditineraire'] and itineraires[i]['idcooperative'] == itinerairecoop.cooperative.id %}
+				{% set x = x + 1 %}
+			{% endif %}
+		{% endfor %}
+
+		{% if x != 0 %}
+		<div class="card-it">
+		{% set url = asset('uploads/logo/'~itineraires[i]['logoitineraire']) %}
+		{% set urllocalisation = asset('uploads/localisation/default_localisation.jpg') %}
+		{% if itineraires[i]['logoitineraire'] != "" %}
+			{% set urllocalisation = asset('uploads/localisation/'~itineraires[i]['logoitineraire']) %}
+		{% endif %}
+		<div class="card-it-header" style="background: url({{ urllocalisation }});background-size:  cover;background-repeat: no-repeat;">
+			<div class="card-it-header-opacity"></div>
+			<div class="card-it-header-logo">
+				<img src="{{ asset('uploads/logo/'~itineraires[i]['cooperativelogo']) }}" class="card-it-header-logo-img">
+			</div>
+		</div>
+		<div class="card-it-body">
+			<div class="card-it-body-destination">
+				{{ itineraires[i]['itineraire'] }}
+			</div>
+			<div class="card-it-body-cooperative-name">
+				<a href="{{ path('book_detailcooperative', { 'id': itineraires[i]['cooperativeid'] }) }}" class="card-it-body-link">{{ itineraires[i]['cooperative'] }}</a>
+			</div>
+		</div>
+		<div class="card-it-tarif">
+		<br/>
+		{% for itinerairecoop in itinerairecoops %}
+			{% if itinerairecoop.itineraire.id == itineraires[i]['iditineraire'] and itineraires[i]['idcooperative'] == itinerairecoop.cooperative.id %}
+				<div class="group-info-body-c-i-destination-tarif">
+					<div class="label-c-i-destination-tarif">{{ itinerairecoop.place.typeplace }}</div><div class="prix-c-i-destination-tarif">{{ itinerairecoop.prix }} Ar</div>
+				</div>
+			{% endif %}
+		{% endfor %}
+			
+		</div>
+		</div>
+		{% endif %}
+
+	{% endfor %}
+
+	{% if itineraires|length  == 0 %}
+
+	<div style="margin-top:20px; line-height: 40px; text-align:center; background: #fff; width: 100%; min-height: 40px; height: auto; padding: 5px auto;">
+	Aucun resultat
+	</div>
+	{% endif %}
+
+
+
+	
+<!-----------------------------End card------------------------------------>
+	</div>
+</div>
+{% endblock %}

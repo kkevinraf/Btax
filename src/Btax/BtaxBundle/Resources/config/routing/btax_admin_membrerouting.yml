@@ -1,0 +1,8 @@
+member_search:
+    pattern:  /
+    defaults: { _controller: "BtaxBundle:MembreBtax:searchMembre" }
+    requirements: { _method: post }
+
+membre_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "BtaxBundle:MembreBtax:detailsMembre" }

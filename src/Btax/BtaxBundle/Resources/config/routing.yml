@@ -1,0 +1,27 @@
+btax_admin_localisation:
+    resource: "@BtaxBundle/Resources/config/routing/btax_admin_localisationrouting.yml"
+    prefix:   /sadmin/btax/localisation
+
+btax_admin_cooperative:
+    resource: "@BtaxBundle/Resources/config/routing/btax_admin_cooperativerouting.yml"
+    prefix:   /sadmin/btax/cooperative
+
+btax_admin_link:
+    resource: "@BtaxBundle/Resources/config/routing/btax_admin_linkrouting.yml"
+    prefix:   /sadmin/btax/link
+
+btax_admin_membre:
+    resource: "@BtaxBundle/Resources/config/routing/btax_admin_membrerouting.yml"
+    prefix:   /sadmin/btax/member
+
+btax_admin_trajet:
+    resource: "@BtaxBundle/Resources/config/routing/btax_admin_trajetrouting.yml"
+    prefix:   /sadmin/btax/trajet
+
+btax_admin_avis:
+    resource: "@BtaxBundle/Resources/config/routing/btax_admin_avisrouting.yml"
+    prefix:   /sadmin/btax/avis
+
+btax_admin_reservation:
+    resource: "@BtaxBundle/Resources/config/routing/btax_admin_reservationrouting.yml"
+    prefix:   /sadmin/btax/reservation

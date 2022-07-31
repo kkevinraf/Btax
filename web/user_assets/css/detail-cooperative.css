@@ -1,0 +1,451 @@
+.hide
+{
+	display: none;
+}
+
+.show
+{
+	display: block;
+}
+
+.cooperative-d-body, .cooperative-d-body-mobile, .cooperative-d-body-desktop, .cp-right-content-list, .cp-left-content-list
+{
+	height: auto;
+}
+
+/*desktop*/
+
+.link-desktop-b, .cooperative-d-body-desktop
+{
+	display: none;
+}
+
+/*cooperative detail*/
+
+.h-c-details
+{
+	
+	width: 100%;
+	height: 180px;
+}
+
+
+
+.h-c-d-content
+{
+	width: 100%;
+	height: 70%;
+	background-color: #006a9e;
+}
+
+.left-h-c-d
+{
+	width: 130px;
+	float: left;
+}
+
+.right-h-c-d
+{
+	width: calc(100% - 130px);
+	float: right;
+	color: #fff;
+}
+
+.right-h-c-d-content
+{
+	height: 70%;
+	margin-top: 20px;
+}
+
+
+.right-h-c-d-content-b
+{
+	height: 20%;
+	color: #fff;
+	font-size: 12px;
+}
+
+.right-h-c-d-content-c
+{
+	height: 20%;
+	color: #fff;
+	font-size: 12px;
+}
+
+.left-h-c-d-img-i img
+{
+	margin: 20px 0 0 20px;
+	width: 80px;
+	height: 80px;
+	border-radius: 50%;
+}
+
+.name-h-c-d
+{
+	height: 35%;
+	font-size: 23px;
+	color: #fff;
+	font-weight: bold;
+}
+
+/*-------------------------------------------end headder--------------------------------------------------------*/
+
+/*-------------------------------------------footer header--------------------------------------------------------*/
+
+.left-h-c-d-footer, .right-h-c-d-footer {
+    text-align: center;
+    line-height: 0px;
+    cursor: pointer;
+ }
+
+
+.h-c-d-footer
+{
+	width: 100%;
+	height: 30%;
+	background-color: #fff;
+}
+
+.right-h-c-d-footer.active, .left-h-c-d-footer.active
+{
+	border-bottom: 3px solid #fac202;
+}
+
+.footer-text
+{
+	font-size: 25px;
+	width: 100%;
+	height: 75%;
+}
+
+.left-h-c-d-footer
+{
+	width: 50%;
+	display: inline-block;
+	float: left;
+	cursor: pointer;
+}
+
+
+.right-h-c-d-footer
+{
+	width: 50%;
+	float: right;
+	display: inline-block;
+	cursor: pointer;
+}
+
+/*-------------------------------------------end footer header--------------------------------------------------------*/
+
+/*------------------------------------------- content--------------------------------------------------------*/
+
+.cp-left-content.show
+{
+	width: 98%;
+	height: auto;
+	margin: auto;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.cp-right-content.show
+{
+	width: 100%;
+	height: 300px
+}
+
+.cp-right-content-list.show
+{
+	width: 100%;
+	height: 400px;
+}
+
+.cp-right-content-formadd.show
+{
+	width: 100%;
+	height: auto;
+}
+
+/*------------------------------------------- end content--------------------------------------------------------*/
+
+
+
+
+
+
+
+
+
+.see-more-btn, .btn-send-avis
+{
+    width: 100%;
+    background-color: #fac202;
+    color: #fff;
+    border: 1px solid #fac202;
+    border-radius: 30px;
+    font-size: 16px;
+}
+
+.add-avis, .back-avis, .add-avis-d, .back-avis-d
+{
+	width: 96%;
+	height: 30px;
+	margin: auto;
+	text-align: right;
+	margin-top: 9px;
+}
+
+.add-avis-link, .back-avis-link, .add-avis-link-d, .back-avis-link-d
+{
+	text-decoration: underline;
+	color: #04091d;
+	font-size: 18px;
+	font-weight: 800px;
+}
+
+.item-add-avis, .item-list-avis
+{
+	height: auto;
+}
+
+/*Form add-avis*/
+
+.form-avis
+{
+	width: 90%;
+	min-height: 280px;
+	padding: 10px;
+	padding-top: 25px;
+	height: auto;
+	margin: 10px auto;
+	background-color: #fff;
+	border-radius: 10px;
+}
+
+.text-avis
+{
+	width: 99%;
+	height: 150px;
+	text-align: left;
+	line-height: 16px;
+	content: "";
+	margin-top: 3px;
+}
+
+/*Form list-avis*/
+
+.item-lists-avis-list
+{
+	width: 94%;
+	margin: auto;
+	min-height: 20px;
+	height: auto;
+	display: flex;
+	flex-wrap: wrap;
+	background-color: #fff;
+	border-radius: 10px;
+	padding-left: 13px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	margin-top: 10px;
+}
+
+.top-item
+{
+	width: 100%;
+	height: 70px;
+	display: flex;
+	flex-wrap:nowrap;
+}
+
+.item-lists-avis-list-left
+{
+	display: inline-block;
+	width: 70px;
+	min-height: 60px;
+	height: auto
+}
+
+	.avatar-name-c
+	{
+		width: 60px;
+	    height: 60px;
+	    border-radius: 100%;
+	    text-align: center;
+	    margin: auto;
+	    margin-top: 5px;
+	    font-weight: bold;
+	    font-size: 20px;
+	    color: #fff;
+	    line-height: 60px;
+	    float: left;
+	    background-color: red;
+	}
+
+.item-lists-avis-list-right
+{
+	display: inline-block;
+	width: 80%;
+}
+
+#glob-list
+{
+	display: flex;
+}
+
+.comment-name
+{
+	font-weight: bold;
+    height: 30px;
+    width: 100%;
+    margin-top: 5px;
+}
+
+.comment-star
+{
+	margin-top: -5px;
+	height: auto;
+}
+
+.comment-content
+{
+	margin: 0;
+}
+
+.view-more
+{
+	width: 96%;
+	height: 40px;
+	margin: 15px auto;
+}
+
+@media only screen and (min-width: 1000px)
+{
+
+	.list-avis-cooperative-d-header
+	{
+		height: 45px;
+	    width: 100%;
+	    background-color: #04091d;
+	    border-top-left-radius: 10px;
+	    border-top-right-radius: 10px;
+	    color: #fff;
+	    line-height: 45px;
+	    text-align: center;
+	}
+
+	.content-b-b
+	{
+		height: auto;
+	}
+
+	.h-c-d-footer, .cooperative-d-body, .cooperative-d-body-mobile
+	{
+		display: none;
+	}
+
+	.cooperative-d-body-desktop
+	{
+		display: block;
+		margin-top: -30px;
+	}
+
+	.link-desktop-b
+	{
+		display: block;
+		position: fixed;
+		bottom: 20px;
+		right: 10px;
+		height: auto;
+		width: auto;
+	}
+
+	.link-desktop-b-show
+	{
+	    height: 40px;
+	    width: 200px;
+	    background-color: #04091d;
+	    border-radius: 30px;
+	    text-align: center;
+	    cursor: pointer;
+	    color: #fff;
+	}
+
+	.icone-avis
+	{
+		width: 35px;
+		height: 35px;
+		background: url(../img/avis-icone.png);
+		background-repeat: no-repeat;
+		background-size: cover;
+		margin-top: 4px;
+		margin-right: 3px;
+	}
+
+	.link-desktop-b-leave
+	{
+		display: none;
+		height: 40px;
+		width: 40px;
+		background-color: #04091d;
+		border-radius: 100%;
+		cursor: pointer;
+	}
+
+	.link-desktop-b-leave-img
+	{
+		position: absolute;
+		background: url(../img/croix-w.png) center no-repeat;
+		background-size: cover;
+		height: 50%;
+		width: 50%;
+		margin: 10px;
+	}
+
+
+	.cp-left-content.hide, .cp-left-content.show 
+	{
+		display: block;
+		width: 100%;
+	}
+
+	.list-itineraire-cooperative-d
+	{
+
+		width: 98%;
+		height: 300px;
+		margin: auto;
+		display: flex;
+		flex-wrap: wrap;
+
+	}
+
+	.list-avis-cooperative-d.show
+	{
+		width: 340px;
+	    background-color: #fff;
+	    min-height: 100px;
+	    height: auto;
+	    max-height: 500px;
+	    overflow: auto;
+	    border-radius: 10px;
+	    position: fixed;
+	    bottom: 65px;
+	    right: 10px;
+	    box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, .1);
+	}
+
+	.list-avis-cooperative-d-list.show
+	{
+		padding: 4px;
+		height: auto;
+	}
+
+	.list-avis-cooperative-d-add.show
+	{
+		height: auto;
+	}
+
+
+
+}

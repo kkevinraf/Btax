@@ -1,0 +1,125 @@
+
+.notification-card
+{
+	width: 320px;
+	min-height: 380px;
+	height: auto;
+	background-color: #fff;
+	border-radius: 6px;
+	margin: 7px;
+}
+
+.notification-card-header
+{
+	width: 100%;
+	height: 160px;
+	background-color: red;
+	border-top-right-radius: 6px;
+	border-top-left-radius: 6px;
+}
+
+.c-i-baniere-bg-opacity {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.6);
+    color: #fff;
+    z-index: 0;
+    border-top-right-radius: 6px;
+	border-top-left-radius: 6px;
+}
+
+.c-i-baniere-link
+{
+	height: 35px;
+	width: 94%;
+	margin: auto;
+	padding-top: 10px;
+	display: flex;
+	flex-wrap: nowrap;
+}
+
+.notif-icon, .delete-icon
+{
+	width: 50%;
+	display: block;
+}
+
+.notif-icon-i, .delete-icon-i
+{
+	width: 35px;
+	height: 35px;
+	background-color: red;
+
+}
+
+.notif-icon-i
+{
+	background:url(../img/notif-w.png) center no-repeat; background-size: cover;
+	position: relative;
+	float: right;
+}
+
+.delete-icon-i
+{
+	background:url(../img/trash-w.png) center no-repeat; background-size: cover;
+	position: relative;
+	float: left;
+}
+
+.counter-notification {
+    height: 22px;
+    width: 22px;
+    background-color: red;
+    position: absolute;
+    margin-left: 130px;
+    float: right;
+    border-radius: 100%;
+    color: #fff;
+    line-height: 22px;
+    font-size: 10px;
+    text-align: center;
+}
+
+.notification-card-destination
+{
+	width: 100%;
+	text-align: center;
+	color: #fff;
+	min-height: 30px;
+	height: auto;	
+	margin-top: 30px;
+	font-size: 18px;
+}
+
+.notification-card-body
+{
+	width: 90%;
+	height: auto;
+	margin: 5px auto;
+}
+
+.notification-card-body-title
+{
+	color: #fac202;
+	text-decoration: underline;
+	font-size: 18px;
+}
+
+.notification-card-body-details ul li
+{
+	list-style: none;
+}
+
+.card-notification-button
+{
+	margin-top: 13px;
+	color: #fff;
+    width: 100%;
+    margin-bottom: 5px;
+    background-color: #FEBD17;
+    border: 1px solid #FEBD17;
+    height: 40px;
+    border-radius: 6px;
+}
+
+

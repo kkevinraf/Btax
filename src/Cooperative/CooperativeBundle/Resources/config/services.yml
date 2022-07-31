@@ -1,0 +1,7 @@
+parameters:
+#    cooperative.example.class: Cooperative\CooperativeBundle\Example
+
+services:
+#    cooperative.example:
+#        class: %cooperative.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

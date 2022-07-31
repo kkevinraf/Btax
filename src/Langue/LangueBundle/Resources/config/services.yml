@@ -1,0 +1,9 @@
+#parameters:
+#    langue.class: Langue\LangueBundle\Langue
+
+services:
+    langue.locale_listener:
+        class: Langue\EventListener\LocaleSubscriber
+        arguments: ["%kernel.default_locale%"]
+        tags:
+          - { name: kernel.event_subscriber }

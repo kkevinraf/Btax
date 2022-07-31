@@ -1,0 +1,157 @@
+{% extends '::layout_user.html.twig' %}
+
+{% block stylesheets %}
+<link rel="stylesheet" type="text/css" href="{{ asset('user_assets/css/styles-star.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('user_assets/css/avis.css') }}">
+
+
+{% endblock %}
+
+{% block body %}
+
+<div>
+		<div class="banniere"></div>
+		<div class="content-b">
+			<div class="content-avis">
+			{% set id_coop = 0 %}
+				{% if cooperative is defined and cooperative|length > 0 %}
+					{% for coop in cooperative %}
+					{% set id_coop = coop.id %}
+				<!------------------Info cooperative------------------------>
+				<div class="left-content-avis">
+					<div class="logo-cooperative-avis">
+						<img src="{{ asset('uploads/logo/'~coop.logo) }}" class="logo-cooperative-avis-img">
+					</div>
+					<div class="content-cooperative-avis">
+						<div class="cooperative-name">{{ coop.nom }}</div>
+					</div>
+					<div class="content-cooperative-avis">
+						{{ coop.contact }}
+					</div>
+					<div class="content-cooperative-avis">
+						<div class="card-cooperative-star">
+							<div id="value" style="width: 105px;">
+								<div id="glob" >
+							      <img id="tde_1" src="{{ asset('user_assets/img/star.png') }}" class="tde_cop"/>
+							      <img id="tde_2" src="{{ asset('user_assets/img/star.png') }}" class="tde_cop"/>
+							      <img id="tde_3" src="{{ asset('user_assets/img/star.png') }}" class="tde_cop"/>
+							      <img id="tde_4" src="{{ asset('user_assets/img/star.png') }}" class="tde_cop"/>
+							      <img id="tde_5" src="{{ asset('user_assets/img/star.png') }}" class="tde_cop"/>    
+							    </div>
+							</div>
+						</div>
+					</div>
+					<div class="content-cooperative-botom">
+						<div class="card-cooperative-contact">
+							<div class="card-cooperative-contact-g" style="height: 30px;">
+								<label class="card-cooperative-contact-g-fb"></label>
+								<label class="card-cooperative-contact-g-tw"></label>
+								<label class="card-cooperative-contact-g-insta"></label>
+								<label class="card-cooperative-contact-g-mail"></label>
+							</div>	
+						</div>
+					</div>	
+				</div>
+					{% endfor %}
+				{% endif %}
+
+				<!------------------Avis------------------------>
+				<div class="right-content-avis">
+					<div class="avis-title">
+						Avis
+					</div>
+					<div class="avis-body">
+						{% if message is defined and message != null %}
+							<div class="message-avis">{{ message }}</div>
+						{% endif %}
+						
+						<div class="avis-body-comment">
+						{% set len = 150 %}
+						{% set note = 5 %}
+						{% set comment = "" %}
+
+						{% if myavis is defined and myavis|length > 0 %}
+							<form action="{{ path('book_update_avis') }}" method="POST">
+							<input type="hidden" name="id" value="{{ myavis.id }}">
+							{% set len = 30 * myavis.note %}{% set len = 30 * myavis.note %}
+							{% set comment = myavis.avis %}
+							{% set note = myavis.note %}
+
+						{% else %}
+							<form action="{{ path('book_add_avis') }}" method="POST">
+							<input type="hidden" name="cooperative" value="{{ id_coop }}">
+						{%  endif %}
+
+							<div class="avis-body-form-comment-block">
+								<div class="picture-member">
+									<div class="picture-member-img">KR</div>
+								</div>
+								<div class="comment-member-form">
+									<div class="name-comment-member">Votre avis</div>
+									<div class="note-member">
+										<div id="value-add" style="width:{{ len }}px;">
+											<div id="glob">
+												<img id="tde_1" src="{{ asset('user_assets/img/star.png') }}" class="tde">
+												<img id="tde_2" src="{{ asset('user_assets/img/star.png') }}" class="tde">
+												<img id="tde_3" src="{{ asset('user_assets/img/star.png') }}" class="tde">
+										     	<img id="tde_4" src="{{ asset('user_assets/img/star.png') }}" class="tde">
+												<img id="tde_5" src="{{ asset('user_assets/img/star.png') }}" class="tde">    
+											</div>
+											<input type="hidden" name="note_member" value="{{ note }}" id="note_member">
+										</div>
+									</div>
+									<div class="content-form-comment-member">
+										<textarea class="comment-form" name="avis">{{ comment }}</textarea>
+									</div>
+									<div class="comment-form-footer">
+										<input type="submit" name="" value="Envoyer" class="btn-send">
+									</div>
+								</div>
+							</div>
+							</form>
+
+							{% if avis is defined and avis|length > 0 %}
+							{% for avi in avis %}
+							<div class="avis-body-comment-block">
+								<div class="picture-member">
+									<div class="picture-member-img">KR</div>
+								</div>
+								<div class="comment-member">
+									<div class="note_by_member">
+									{% set l = 30*avi.note %}
+										<div id="value" style="width: {{ l }}px;">
+											<div id="glob" >
+										      <img id="tde_1" src="{{ asset('user_assets/img/star_comment.png') }}" class="tde_cop"/>
+										      <img id="tde_2" src="{{ asset('user_assets/img/star_comment.png') }}" class="tde_cop"/>
+										      <img id="tde_3" src="{{ asset('user_assets/img/star_comment.png') }}" class="tde_cop"/>
+										      <img id="tde_4" src="{{ asset('user_assets/img/star_comment.png') }}" class="tde_cop"/>
+										      <img id="tde_5" src="{{ asset('user_assets/img/star_comment.png') }}" class="tde_cop"/>    
+										    </div>
+										</div>
+									</div>	
+									<div class="name-comment-member">{{ avi.utilisateur }}</div>
+									<div class="content-comment-member">
+										{{ avi.avis }}
+									</div>
+								</div>
+							</div>
+							{% endfor %}
+							{% else %}
+							<br/>&nbsp;&nbsp;&nbsp;Aucun avis
+							{% endif %}
+							
+						</div>
+					</div>
+				</div>	
+			</div>
+		</div>
+	</div>
+
+
+{% endblock %}
+
+{% block javascripts %}
+
+<script type="text/javascript" src="{{ asset('user_assets/js/script-star.js') }}"></script>
+
+{% endblock %}

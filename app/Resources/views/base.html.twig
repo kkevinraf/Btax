@@ -1,0 +1,211 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Btax</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    {% block stylesheets %}{% endblock %}
+  
+    <link rel="stylesheet" href="{{ asset('admin_assets/css/jquery.dataTables.min.css') }}">
+   
+
+
+     <!-- Bootstrap CSS
+        ============================================ -->
+    <link rel="stylesheet" href="{{ asset('admin_assets/css/bootstrap.min.css') }}">
+    <!-- font awesome CSS
+        ============================================ -->
+    <link rel="stylesheet" href="{{ asset('admin_assets/css/font-awesome.min.css') }}">
+
+    <!-- Notika icon CSS
+        ============================================ -->
+    <link rel="stylesheet" href="{{ asset('admin_assets/css/notika-custom-icon.css') }}">
+    
+    <!-- main CSS
+        ============================================ -->
+    <link rel="stylesheet" href="{{ asset('admin_assets/css/chosen/chosen.css') }}">
+    
+    <!-- main CSS
+        ============================================ -->
+    <link rel="stylesheet" href="{{ asset('admin_assets/css/main.css') }}">
+    <!-- style CSS
+        ============================================ -->
+    <link rel="stylesheet" href="{{ asset('admin_assets/style.css') }}">
+    <!-- responsive CSS
+        ============================================ -->
+    <link rel="stylesheet" href="{{ asset('admin_assets/css/responsive.css') }}">
+
+    
+</head>
+
+
+   <div class="header-top-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                    <div class="logo-area">
+                        <a href="../#"><img src="{{ asset('admin_assets/img/logo/logo.png') }}" alt="" /></a>
+                    </div>
+                </div>
+                <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+                    <div class="header-top-menu">
+                        <ul class="nav navbar-nav notika-top-nav">
+                            <li class="nav-item">
+                                <a href="cooperative-avis.html" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><span><i class="notika-icon notika-social"></i></span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="cooperative-parametre.html" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><span><i class="notika-icon notika-settings"></i></span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><span><i class="notika-icon notika-close"></i></span></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Header Top Area -->
+   
+   <!-- Main Menu area start-->
+    <div class="main-menu-area mg-tb-40">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <ul class="nav nav-tabs notika-menu-wrap menu-it-icon-pro">
+                        <li class="active"><a data-toggle="tab" href="../#Account"><i class="notika-icon notika-file"></i> Account </a>
+                        </li>
+                        <li><a data-toggle="tab" href="../#Cooperative"><i class="notika-icon notika-finance"></i> Cooperative </a></a>
+                        </li>
+                        <li><a href="#######('adminbtax_searchtrajet') }}"><i class="notika-icon notika-map"></i> Trajet </a>
+                        </li>
+                        <li><a href="#######('adminbtax_listitineraire') }}"><i class="notika-icon notika-calendar"></i> Itineraire </a>
+                        </li>
+                        <li><a data-toggle="tab" href="../#Reservation"><i class="notika-icon notika-credit-card"></i> Reservation </a>
+                        </li>
+                        <li><a data-toggle="tab" href="../#Membre"><i class="notika-icon notika-support"></i> Membre </a>
+                        </li>
+                        <li><a href="#######('adminbtax_moncompte') }}"><i class="notika-icon notika-app"></i> Mon compte </a>
+                        </li>
+                        <li><a data-toggle="tab" href="../#Avis"><i class="notika-icon notika-chat"></i> Avis (5)</a>
+                        </li>
+                    </ul>
+
+                    <div class="tab-content custom-menu-content">
+
+                        <div id="Avis" class="tab-pane notika-tab-menu-bg animated flipInX">
+                            <ul class="notika-main-menu-dropdown">
+                                <li><a href="#######('adminbtax_avisinmoderation') }}">A valider (2)</a></li>
+                                <li><a href="#######('adminbtax_avissignale') }}">Signaler (6)</a></li>
+                            </ul>
+                        </div>
+
+                        <div id="Account" class="tab-pane in active notika-tab-menu-bg animated flipInX">
+                            <ul class="notika-main-menu-dropdown">
+                                <li><a href="#######('adminbtax_account_new') }}">Nouveau</a></li>
+                                <li><a href="#######('adminbtax_account_list') }}">Liste</a></li>
+                            </ul>
+                        </div>
+
+
+                        <div id="Cooperative" class="tab-pane notika-tab-menu-bg animated flipInX">
+                            <ul class="notika-main-menu-dropdown">
+                                <li><a href="#######('adminbtax_cooperative_new') }}">Nouveau</a></li>
+                                <li><a href="#######('adminbtax_cooperative') }}">Liste</a></li>
+                            </ul>
+                        </div>    
+
+
+                        <div id="Reservation" class="tab-pane notika-tab-menu-bg animated flipInX">
+                            <ul class="notika-main-menu-dropdown">
+                                <li><a href="#######('adminbtax_newreservation') }}">Nouvelle</a></li>
+                                <li><a href="#######('adminbtax_searchreservation') }}">Recherche</a></li>
+                                <li><a href="#######('adminbtax_searchadvancedreservation') }}">Recherche avancee</a></li>
+                                <li><a href="#######('adminbtax_searchdatereservation') }}">Recherche entre 2 dates</a></li>
+                            </ul>
+                        </div>
+
+
+                        <div id="Membre" class="tab-pane notika-tab-menu-bg animated flipInX">
+                            <ul class="notika-main-menu-dropdown" style="width: 60%; margin: auto;">
+                                <br>
+                                <li>
+                                    <div class="col-lg-35 col-md-35 col-sm-35 col-xs-35">
+                                        <div class="form-example-int form-example-st">
+                                            <div class="form-group">
+                                                <div class="nk-int-st">
+                                                    <input type="text" class="form-control input-sm" placeholder="" style="width: 330px;">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="col-lg-35 col-md-35 col-sm-35 col-xs-35">
+                                        <div class="form-example-int form-example-st">
+                                            <div class="form-group">
+                                                <div class="nk-int-st">
+                                                    <select class="form-control input-sm">
+                                                        <option>Adresse e-mail</option>
+                                                        <option>Numero de client</option>
+                                                        <option>Numero de transaction</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+
+                            <br>
+                        </div>
+
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Main Menu area End-->
+
+    {% block body %}{% endblock %}    
+    
+
+
+
+    <!-- Data Table JS
+        ============================================ -->
+    <script src="{{ asset('admin_assets/js/data-table/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('admin_assets/js/data-table/data-table-act.js') }}"></script>
+    
+
+
+    <script src="{{ asset('admin_assets/js/vendor/jquery-1.12.4.min.js') }}"></script>
+    <!-- bootstrap JS
+        ============================================ -->
+    <script src="{{ asset('admin_assets/js/bootstrap.min.js') }}"></script>
+    
+    
+    <!-- icheck JS
+        ============================================ -->
+    <script src="{{ asset('admin_assets/js/icheck/icheck.min.js') }}"></script>
+    <script src="{{ asset('admin_assets/js/icheck/icheck-active.js') }}"></script>
+    
+    
+    <!--  chosen JS
+        ============================================ -->
+    <script src="{{ asset('admin_assets/js/chosen/chosen.jquery.js') }}"></script>
+    
+    <!-- main JS
+        ============================================ -->
+    <script src="{{ asset('admin_assets/js/main.js') }}"></script>
+</body>
+
+</html>
+
+    {% block javascripts %}{% endblock %}
+</html>

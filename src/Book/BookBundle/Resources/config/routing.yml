@@ -1,0 +1,27 @@
+book:
+    resource: "@BookBundle/Resources/config/routing/book_linkrouting.yml"
+    prefix:   /book/
+
+search:
+    resource: "@BookBundle/Resources/config/routing/search_linkrouting.yml"
+    prefix:   /book/search/
+
+paiement_route:
+    resource: "@BookBundle/Resources/config/routing/paiement_linkrouting.yml"
+    prefix:   /paiement/
+
+search_log_out:
+    path: /searchLogOut/
+    defaults: { _controller: BookBundle:Link:searchLogOut }
+
+book_homepage:
+    path:     /
+    defaults: { _controller: BookBundle:Link:index }
+    options:
+        expose: true
+
+cooperative_getplace:
+    path:     /getplacecoop/{cooperative}
+    defaults: { _controller: BookBundle:Search:getPlaceCooperative }
+    options:
+        expose: true

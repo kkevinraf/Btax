@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>B'tax</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="">
+    {% block stylesheets %}{% endblock %}
+    <link rel="stylesheet" type="text/css" href="{{ asset('user_assets/css/styles.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('user_assets/css/icone-style.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('user_assets/css/avatar-style.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('user_assets/css/style-card-cooperative.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('user_assets/css/styles-star.css') }}">
+</head>
+<body>
+    <!-----------------------------Header------------------------------------>
+    <header class="topbar-c">
+        <div class="nav-c">
+
+
+            <!-----------------------------Header Left------------------------------------>
+            <div class="nav-c-left">
+                <div class="logo-place">
+                    <img src="{{ asset('user_assets/img/logo-f.png') }}" class="logo-place-img">
+                </div>
+            </div>
+            <!-----------------------------End Header Left------------------------------------>
+
+
+            <!-----------------------------Header Right------------------------------------>
+            <div class="nav-c-right">
+
+
+                <!-----------------------------Link toggle Menu------------------------------------>
+                <div class="m-right-toggle-list">
+                    <span class="m-toggle-icon"></span>
+                </div>
+                <!-----------------------------End Link toggle Menu------------------------------------>
+
+                <!-----------------------------Desktop Menu------------------------------------>
+                <div class="link-right-nav-c">
+
+                    <!-----------------------------Desktop Menu Left ------------------------------------>
+                    <div class="link-right-nav-c-left">
+                        <div class="link-right-nav-c-left-space">
+                            <ul>
+                                <a href="{{ path('book_reservation') }}" class="link-right-nav-c-left-space-link">
+                                    <li>
+                                        <div class="fusion-link">
+                                            <div class="icon-fusion-link" id="reservation{% if preservation is defined and preservation == 'active' %}-active{% endif %}">      
+                                            </div>
+                                            <div class="label-fusion-link {% if preservation is defined and preservation == 'active' %}active{% endif %}">{{ 'Réservation'|trans }}</div>
+                                        </div>
+                                    </li>
+                                </a>
+
+                                <a href="{{ path('book_cooperative') }}" class="link-right-nav-c-left-space-link">
+                                <li>
+                                    <div class="fusion-link">
+                                        <div class="icon-fusion-link" id="cooperative{% if pcooperative is defined and pcooperative == 'active' %}-active{% endif %}">     
+                                        </div>
+                                        <div class="label-fusion-link {% if pcooperative is defined and pcooperative == 'active' %}active{% endif %}">{{ 'Coopérative'|trans }}</div>
+                                    </div>
+                                </li>
+                                </a>
+
+                                <a href="{{ path('book_itineraire') }}" class="link-right-nav-c-left-space-link">
+                                <li>
+                                    <div class="fusion-link">
+                                        <div class="icon-fusion-link" id="itineraire{% if pitineraire is defined and pitineraire == 'active' %}-active{% endif %}">      
+                                        </div>
+                                        <div class="label-fusion-link {% if pitineraire is defined and pitineraire == 'active' %}active{% endif %}">{{ 'Itinéraire'|trans }}</div>
+                                    </div>
+                                </li>
+                                </a>
+
+                                <a href="{{ path('book_recherche') }}" class="link-right-nav-c-left-space-link">
+                                <li>
+                                    <div class="fusion-link">
+                                        <div class="icon-fusion-link" id="recherche{% if precherche is defined and precherche == 'active' %}-active{% endif %}">       
+                                        </div>
+                                        <div class="label-fusion-link {% if precherche is defined and precherche == 'active' %}active{% endif %}">{{ 'Recherche'|trans }}</div>
+                                    </div>
+                                </li>
+                                </a>
+
+                                <a href="{{ path('book_notification') }}" class="link-right-nav-c-left-space-link">
+                                <li>
+                                    <div class="fusion-link">
+                                        {% if numbernotification is defined %}
+                                        <div class="counter-fusion-link">numbernotification</div>
+                                        {% endif %}
+                                        <div class="icon-fusion-link" id="notification{% if pnotification is defined and pnotification == 'active' %}-active{% endif %}">        
+                                        </div>
+                                        <div class="label-fusion-link {% if pnotification is defined and pnotification == 'active' %}active{% endif %}">{{ 'Notification'|trans }}</div>
+                                    </div>
+                                </li>
+                                </a>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-----------------------------Desktop Menu Right------------------------------------>
+                    <div class="link-right-nav-c-right">
+                        <div class="avatar-e">{{ app.user|slice(0,1)|upper  }}</div>
+                    </div>
+                </div>
+                <!-----------------------------End Desktop Menu------------------------------------>
+
+
+            </div>
+            <!-----------------------------End Header Right------------------------------------>
+
+        </div>
+    </header>
+    <!-----------------------------End Header------------------------------------>
+
+
+    <!-----------------------------Toggle Menu------------------------------------>
+
+    <div class="toggle-menu is-close">
+
+
+        <div class="header-toggle-menu-c"></div>
+
+
+        <div class="info-member">
+            <div class="avatar-img">{{ app.user|slice(0,2)|upper }}</div>
+            <div class="name-member">{{ app.user }}</div>
+        </div>
+
+
+        <div class="body-toggle-menu">
+            <ul>
+                <a href="{{ path('book_reservation') }}" class="link-right-nav-c-left-space-link">
+                <li class="toggle-list-link">
+                    <div class="toggle-icon" id="reservation{% if preservation is defined and preservation == 'active' %}-active{% endif %}"></div>
+                    <div class="toggle-label">{{ 'Réservation'|trans }}</div>
+                </li>
+                </a>
+
+                <a href="{{ path('book_cooperative') }}" class="link-right-nav-c-left-space-link">
+                <li class="toggle-list-link">
+                    <div class="toggle-icon" id="cooperative{% if pcooperative is defined and pcooperative == 'active' %}-active{% endif %}"></div>
+                    <div class="toggle-label">{{ 'Coopérative'|trans }}</div>
+                </li>
+                </a>
+
+                <a href="{{ path('book_itineraire') }}" class="link-right-nav-c-left-space-link">
+                <li class="toggle-list-link">
+                    <div class="toggle-icon" id="itineraire{% if pitineraire is defined and pitineraire == 'active' %}-active{% endif %}"></div>
+                    <div class="toggle-label">{{ 'Itinéraire'|trans }}</div>
+                </li>
+                </a>
+
+                <a href="{{ path('book_recherche') }}" class="link-right-nav-c-left-space-link">
+                <li class="toggle-list-link">
+                    <div class="toggle-icon" id="recherche{% if precherche is defined and precherche == 'active' %}-active{% endif %}"></div>
+                    <div class="toggle-label">{{ 'Recherche'|trans }}</div>
+                </li>
+                </a>
+
+                <a href="{{ path('book_notification') }}" class="link-right-nav-c-left-space-link">
+                <li class="toggle-list-link">
+                    <div class="toggle-icon" id="notification{% if notification is defined and notification == 'active' %}-active{% endif %}"></div>
+                    <div class="toggle-label {% if pnotification is defined and pnotification == 'active' %}active{% endif %}">{{ 'Notification'|trans }}</div>
+                </li>
+                </a>
+                <a href="{{ path('book_myaccount') }}" class="link-right-nav-c-left-space-link">
+                <li class="toggle-list-link">
+                    <div class="toggle-icon" id="parametres{% if pparametres is defined and pparametres == 'active' %}-active{% endif %}"></div>
+                    <div class="toggle-label">{{ 'Paramètres'|trans }}</div>
+                </li>
+                </a>
+            </ul>
+        </div>
+    </div>
+
+    <!-----------------------------End Toggle Menu------------------------------------>
+
+    <!-----------------------------Avatar Menu------------------------------------>
+
+    <div class="avatar-menu">
+        <div class="triangle"></div>
+        <div class="avatar-header">
+            <div class="avatar-pic">
+                <div class="avatar-img-img">{{ app.user|slice(0,2)|upper }}</div>    
+            </div>
+        </div>
+        <div class="avatar-body">
+            <div class="avatar-name">
+                {{ app.user }}<br>
+                <a href="{{ path('book_myaccount') }}" class="avatar-link">{{ 'Mon compte'|trans }}</a>
+            </div>
+        </div>
+        <div class="avatar-footer">
+            <div class="footer-a-left"><a href="{{ path('fos_user_security_logout') }}" class="avatar-link">{{ 'Déconnexion'|trans }}</a></div>
+            <div class="footer-a-right"><a href="#" class="avatar-link">{{ 'Aide'|trans  }}</a></div>
+        </div>
+    </div>
+
+
+
+
+    <!-----------------------------End Avatar Menu------------------------------------>
+
+    {% block body %}{% endblock %}    
+    <script type="text/javascript" src="{{ asset('user_assets/js/jquery-3.4.1.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('user_assets/js/script.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('user_assets/js/avatar-script.js') }}"></script>
+    {% block javascripts %}{% endblock %}
+</html>

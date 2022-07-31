@@ -1,0 +1,21 @@
+paiement_log_out:
+    path:     /{id}/select
+    defaults: { _controller: BookBundle:Paiement:selectLogOut }
+
+paiement_credit_card:
+    path:     /cc
+    defaults: { _controller: BookBundle:Paiement:creditCard }
+
+paiement_paypal:
+    path:     /ppl
+    defaults: { _controller: BookBundle:Paiement:paypal }
+
+paiement_mobile_money:
+    path:     /mm
+    defaults: { _controller: BookBundle:Paiement:mobileMoney }
+
+paiement_set_session:
+    path: /setsession/{id}/{nom}/{place}
+    defaults: { _controller: BookBundle:Paiement:registerSession }
+    options:
+        expose: true

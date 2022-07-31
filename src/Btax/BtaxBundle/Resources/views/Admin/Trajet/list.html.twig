@@ -1,0 +1,54 @@
+ {% extends '::layout_admin_btax.html.twig' %}
+
+{% block body -%}
+<!-- Data Table area Start-->
+    <div class="data-table-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="data-table-list">
+                        {% if trajets|length != 0 %}
+                        <div class="basic-tb-hd">
+                            <h2>Liste Trajet</h2>
+                            
+                        </div>
+                        <div class="table-responsive">
+                            <table id="data-table-basic" class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Date</th>
+                                        <th>Depart</th>
+                                        <th>Destination</th>
+                                        <th>Type</th>
+                                        <th>Prix</th>
+                                        <th>Voiture</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for trajet in trajets %}
+                                    <tr>
+                                        <td>{{ trajet.date|date }}</td>
+                                        <td>{{ trajet.itinerairecoop.itineraire.depart }}</td>
+                                        <td>{{ trajet.itinerairecoop.itineraire.destination }}</td>
+                                        <td>{{ trajet.itinerairecoop.place }}</td>
+                                        <td>{{ trajet.itinerairecoop.prix }} Ar</td>
+                                        <td>{{ trajet.voiture.immatriculation }}</td>
+                                        <td>
+                                            <a href="{{ path('adminbtax_detailtrajet', { 'id': trajet.id }) }}"><i class="notika-icon notika-more-button"></i></a>
+                                        </td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                        {% else %}
+                            <center>Aucun resultat</center>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Data Table area End-->
+     {% endblock %}

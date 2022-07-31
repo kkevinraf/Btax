@@ -1,0 +1,51 @@
+book_cooperative:
+    path:     /cooperative
+    defaults: { _controller: BookBundle:Link:cooperative }
+
+book_reservation:
+    path:     /reservation
+    defaults: { _controller: BookBundle:Link:reservation }
+
+book_itineraire:
+    path:     /itineraire
+    defaults: { _controller: BookBundle:Link:itineraire }
+
+book_filter_itineraire:
+    path:     /itineraire/filter
+    defaults: { _controller: BookBundle:Link:itineraireFilter }
+
+book_recherche:
+    path:     /recherche
+    defaults: { _controller: BookBundle:Link:recherche }
+    options:
+        expose: true
+
+book_myaccount:
+    path:     /myaccount
+    defaults: { _controller: BookBundle:Link:myaccount }
+    options:
+        expose: true
+
+book_detailcooperative:
+    pattern:  /{id}/cooperative
+    defaults: { _controller: BookBundle:Link:detailCooperative }
+
+book_add_avis:
+    pattern:  /addavis
+    defaults: { _controller: BookBundle:Link:addAvis }
+
+book_update_avis:
+    pattern:  /updateavis
+    defaults: { _controller: BookBundle:Link:updateAvis }
+
+book_all_avis:
+    pattern:  /allavis/{id}
+    defaults: { _controller: BookBundle:Link:allAvis }
+
+book_notification:
+    pattern:  /notification
+    defaults: { _controller: BookBundle:Notification:index }
+
+book_notification_search:
+    pattern:  /notification/search/{id}
+    defaults: { _controller: BookBundle:Notification:notificationSearch }    

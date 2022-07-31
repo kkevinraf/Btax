@@ -1,0 +1,148 @@
+.card-cooperative
+{
+	background-color: #fff;
+	height: 300px;
+	width: 250px;
+	border-radius: 10px;
+	margin-top: 10px;
+	margin-left: 10px;
+}
+
+.card-cooperative-logo
+{
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	height: 42%;
+	padding-top: 25px;
+}
+
+.card-cooperative-logo-img
+{
+	background-color: green;
+	border-radius: 100%;
+	height: 120px;
+	width: 120px;
+	margin: 0px auto 0 auto; 
+}
+
+.card-cooperative-name
+{
+	text-align: center;
+    color: #3c3e40;
+    font-size: 18px;
+    font-family: verdana;
+    height: 12%;
+}
+
+.card-cooperative-avis
+{
+	height: 17%;
+}
+
+
+.card-cooperative-star
+{
+	width: 150px;
+	margin: auto;
+}
+
+.card-cooperative-contact
+{
+	height: 14%;
+}
+
+.card-cooperative-contact-g
+{
+	width: 89%;
+	height: 100%;
+	margin: auto;
+	display: flex;
+	flex-wrap: nowrap;
+}
+
+.card-cooperative-contact-g-tw, .card-cooperative-contact-g-fb, .card-cooperative-contact-g-insta, .card-cooperative-contact-g-mail
+{
+	width: 24%;
+	height: 100%;
+}
+
+.card-cooperative-contact-g-tw
+{
+	background: url(../img/twiter.png);
+	background-size: 30px;
+	background-repeat: no-repeat;
+	background-position: center;
+	cursor: pointer;
+}
+
+.card-cooperative-contact-g-tw:hover
+{
+	background: url(../img/twiter-active.png);
+	background-size: 30px;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+.card-cooperative-contact-g-fb
+{
+	background: url(../img/facebook.png);
+	background-size: 30px;
+	background-repeat: no-repeat;
+	background-position: center;
+	cursor: pointer;
+}
+
+.card-cooperative-contact-g-fb:hover
+{
+	background: url(../img/facebook-active.png);
+	background-size: 30px;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+.card-cooperative-contact-g-insta
+{
+	background: url(../img/insta.png);
+	background-size: 30px;
+	background-repeat: no-repeat;
+	background-position: center;
+	cursor: pointer;
+}
+
+.card-cooperative-contact-g-insta:hover
+{
+	background: url(../img/insta-active.png);
+	background-size: 30px;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+.card-cooperative-contact-g-mail
+{
+	background: url(../img/mail.png);
+	background-size: 30px;
+	background-repeat: no-repeat;
+	background-position: center;
+	cursor: pointer;
+}
+
+.card-cooperative-contact-g-mail:hover
+{
+	background: url(../img/mail-active.png);
+	background-size: 30px;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+.card-cooperative-body-link
+{
+	font-size: 18px;
+	font-weight: 510px;
+	text-decoration: none;
+	color: #04091d;
+}
+
+.card-cooperative-body-link:hover
+{
+	color: #fac202;
+}

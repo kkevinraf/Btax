@@ -1,0 +1,27 @@
+cooperative_admin_voiture:
+    resource: "@CooperativeBundle/Resources/config/routing/cooperative_admin_voiturerouting.yml"
+    prefix:   /sadmin/cooperative/voiture
+
+cooperative_admin_place:
+    resource: "@CooperativeBundle/Resources/config/routing/cooperative_admin_placerouting.yml"
+    prefix:   /sadmin/cooperative/place
+
+cooperative_admin_itinerairecoop:
+    resource: "@CooperativeBundle/Resources/config/routing/cooperative_admin_itinerairecooprouting.yml"
+    prefix:   /sadmin/cooperative/itinerairecoop
+
+cooperative_admin_trajet:
+    resource: "@CooperativeBundle/Resources/config/routing/cooperative_admin_trajetrouting.yml"
+    prefix:   /sadmin/cooperative/trajet
+
+cooperative_admin_compte:
+    resource: "@CooperativeBundle/Resources/config/routing/cooperative_admin_compterouting.yml"
+    prefix:   /sadmin/cooperative/compte
+
+cooperative_admin_reservation:
+    resource: "@CooperativeBundle/Resources/config/routing/cooperative_admin_reservationrouting.yml"
+    prefix:   /sadmin/cooperative/reservation
+
+cooperative_admin_member:
+    resource: "@CooperativeBundle/Resources/config/routing/cooperative_admin_compterouting.yml"
+    prefix:   /sadmin/cooperative/membre    

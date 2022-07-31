@@ -1,0 +1,30 @@
+langue:
+    resource: "@LangueBundle/Resources/config/routing.yml"
+    prefix:   /
+
+utilisateurs:
+    resource: "@UtilisateursBundle/Resources/config/routing.yml"
+    prefix:   /
+
+book:
+    resource: "@BookBundle/Resources/config/routing.yml"
+    prefix:   /
+
+btax:
+    resource: "@BtaxBundle/Resources/config/routing.yml"
+    prefix:   /
+
+cooperative:
+    resource: "@CooperativeBundle/Resources/config/routing.yml"
+    prefix:   /
+
+index:
+    path:     /index
+    defaults: { _controller: UtilisateursBundle:Index:index }
+
+fos_js_routing:
+    resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"
+
+testest:
+    path:     /testest
+    defaults: { _controller: BookBundle:Link:testest }  

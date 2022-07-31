@@ -1,0 +1,7 @@
+parameters:
+#    btax.example.class: Btax\BtaxBundle\Example
+
+services:
+#    btax.example:
+#        class: %btax.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

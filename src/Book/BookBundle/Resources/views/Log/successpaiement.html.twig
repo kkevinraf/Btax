@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>B'tax</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="">
+	<link rel="stylesheet" type="text/css" href="{{ asset('user_assets/css/styles.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ asset('user_assets/css/confirmation-paiement.css') }}">
+</head>
+<body>
+	<!-----------------------------Header------------------------------------>
+	<header class="topbar-c">
+		<div class="nav-c">
+
+
+			<!-----------------------------Header Left------------------------------------>
+			<div class="nav-c-left">
+				<div class="logo-place">
+					<a href="{{ path('book_homepage') }}"><img src="{{ asset('user_assets/img/logo-f.png') }}" class="logo-place-img"></a>
+				</div>
+			</div>
+			<!-----------------------------End Header Left------------------------------------>
+
+
+			
+
+		</div>
+	</header>
+	<!-----------------------------End Header------------------------------------>
+
+	<div>
+		<div class="banniere"></div>
+		<div class="content-b">
+
+			<div class="confirmation-paiement">
+				<div class="confirmation-paiement-header">
+					<div class="success-img"></div>
+					<div class="confirmation-paiement-header-description">
+						<div class="confirmation-paiement-header-description-title">
+							Paiement effectue avec succes
+						</div>
+						<div class="confirmation-paiement-header-description-transaction">
+							Numero de transaction :<br>
+							- xxxxxxxxxxxxxxxxxxxxxxxxxx<br>
+							- xxxxxxxxxxxxxxxxxxxxxxxxxx
+						</div>
+					</div>
+				</div>
+				<div class="confirmation-paiement-center">
+					<div class="confirmation-paiement-center-l"></div>
+					<div class="confirmation-paiement-center-c"></div>
+					<div class="confirmation-paiement-center-r"></div>
+				</div>
+				<div class="confirmation-paiement-bottom">
+					<div class="confirmation-paiement-bottom-description">
+						Montant regle : 300 000 Ar<br>
+						Moyen de paiement : MVOLA
+					</div>
+					<div class="confirmation-paiement-bottom-btn">
+						<a href="{{ path('book_homepage') }}"><button class="back-to-site-paiement">Revenir sur le site</button></a>
+					</div>
+				</div>
+			</div>
+
+		
+
+
+		</div>
+	</div>
+
+</body>
+	<script type="text/javascript" src="{{ asset('user_assets/js/jquery-3.4.1.min.js') }}"></script>
+</html>

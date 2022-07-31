@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>B'tax</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="">
+	<link rel="stylesheet" type="text/css" href="{{ asset('user_assets/css/styles-ind.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ asset('user_assets/css/footer.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ asset('user_assets/css/counter-box.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ asset('user_assets/css/recherche-style.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ asset('user_assets/css/card-itineraire-style.css') }}">
+
+	<style>
+		.no-result
+		{
+			width: 100%;
+			min-height: 50px;
+			height: auto;
+			text-align: center;
+		}
+		.no-result a
+		{
+			color: #FAC202;
+		}
+
+		.search-result-content
+		{
+			display: flex;
+			flex-wrap: wrap;
+		}
+	</style>
+</head>
+<body>
+	<!-----------------------------Header------------------------------------>
+	<header class="topbar-c">
+		<div class="nav-c">
+			<!-----------------------------Header Left------------------------------------>
+			<div class="nav-c-left">
+				<div class="logo-place">
+					<a href="{{ path('book_homepage') }}"><img src="{{ asset('user_assets/img/logo-f.png') }}" class="logo-place-img"></a>
+				</div>
+			</div>
+			<!-----------------------------End Header Left------------------------------------>
+
+
+			<!-----------------------------Header Right------------------------------------>
+			<div class="nav-c-right">
+				<div class="nav-c-right-space">
+					<ul>
+						<li><a href="{{ path('fos_user_security_login') }}"><button class="stl-btn-log">Connexion</button></a></li>
+						<li><a href="{{ path('fos_user_registration_register') }}"><button class="stl-btn-log">Inscription</button></a></li>
+					</ul>
+				</div>
+			</div>
+			<!-----------------------------End Header Right------------------------------------>
+
+		</div>
+	</header>
+	<!-----------------------------End Header------------------------------------>
+	<div>
+	<div class="banniere"></div>
+	<div class="header-search">
+		<div class="form-header-search">
+			<div class="header-search-result">
+				{% if searchresult is defined %}
+				<div class="header-search-result-number">
+					{% if data is defined %}
+						{{ data|length }}
+					{% endif %}
+				</div>	
+				<div class="header-search-result-text">
+					&nbsp;resultat{% if data is defined and data|length > 1 %}s
+					{% endif %}
+				</div>
+				{% endif %}
+			</div>
+			<div class="header-search-link">
+				<a href="#" class="run-search {% if searchresult is defined %} {{ searchresult }} {% else %} is-close {% endif %}">Lancer la recherche</a>
+				<a href="#" class="see-result {% if searchform is defined %} {{ searchform }} {% else %} is-open {% endif %}">Annuler la recherche</a>
+			</div>
+		</div>
+	</div>
+	<div class="search-form {% if searchform is defined %} {{ searchform }} {% else %} is-open {% endif %}">
+	<div class="form-search-div">
+		<div class="form-search-div-title">
+			Recherche avancée
+		</div>
+		<form class="r-form-search-div" action="{{ path('search_log_out') }}" method="POST">
+
+			<datalist id="villes">
+				{% if villes is defined and villes|length !=  0 %}
+                    {% for a in villes %}
+                       	<option value="{{ a.localisation }}">
+                    {% endfor %}
+                {% endif %}
+			</datalist>
+
+			<datalist id="cooperatives">
+				{% if cooperatives is defined and cooperatives|length !=  0 %}
+                    {% for c in cooperatives %}
+                       	<option value="{{ c.nom }}">
+                    {% endfor %}
+                {% endif %}
+			</datalist>
+
+			<div class="form-search-content">
+				<div class="title-search">
+					Départ
+				</div>
+				<div class="input-search-input">
+					<input list="villes" type="text" class="input-f-search" value="{% if depart is defined and depart != null %}{{ depart }}{% endif %}" name="depart" required>	
+				</div>
+			</div>
+			<div class="form-search-content">
+				<div class="title-search">
+					Destination
+				</div>
+				<div class="input-search-input">
+					<input list="villes" type="text" class="input-f-search" value="{% if destination is defined and destination != null %}{{ destination }}{% endif %}" name="destination" required>	
+				</div>
+			</div>
+			<div class="form-search-content">
+				<div class="title-search">
+				Date
+				</div>
+				<div class="input-search-input">
+					<input type="date" class="input-f-search" name="date" required>	
+				</div>
+			</div>
+			<div class="form-search-content">
+				<div class="title-search">
+					Horaire
+				</div>
+				<div class="input-search-input">
+					<select class="input-f-search" name="horaire">
+						<option value = "1">Tous</option>
+						<option value = "2">Matin</option>
+						<option value = "3">Soire</option>
+					</select>
+				</div>
+			</div>
+			<div class="form-search-content">
+				<div class="title-search">
+					Cooperative
+				</div>
+				<div class="input-search-input">
+					<input list="cooperatives" type="text" class="input-f-search" name="cooperative" id="cooperative-id">	
+				</div>
+			</div>
+
+			<div class="form-search-content">
+				<div class="title-search">
+				Type place
+				</div>
+				<div class="input-search-input">
+					<select class="input-f-search" name="place" id="list-place">
+						<option value="">Tous</option>	
+					</select>
+				</div>
+			</div>
+			
+			<div class="form-search-content">
+				<div class="title-search">
+					Nombre de place
+				</div>
+				<div class="input-search-input">
+					<div class="counter-search">
+						<div class="number-count-l" onclick="prevNum()">-</div>
+							<div class="number-count-c" id="number-count-c"><span style="display: initial;">1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span></div>
+								<div class="number-count-r" onclick="nextNum()">+</div>
+							</div>	
+						</div>
+						<input type="hidden" name="nbrPlace" id="nbrPlace" value="1">
+					</div>
+
+					<div class="form-search-content">
+						<div class="input-search-input">
+							<input type="submit" name="" value="Recherche" class="btn-f-search">	
+						</div>
+					</div>
+
+				</form>
+			</div>
+		</div>
+
+		<div class="search-result {% if searchresult is defined %} {{ searchresult }} {% else %} is-close {% endif %}">
+			
+<div class="search-result-content">
+	{% if data is defined and data|length > 0 %}
+
+	{% for d in data %}
+
+	<!-------------------------------------Card----------------------------------------------->
+<!---------------------------------------------------------------------------------------->
+
+	<div class="card-itineraire">
+		<div class="c-i-header">
+			{{ d.cooperative.nom }} : {{ d.date|date('d/m/Y') }}
+		</div>
+		{% set url = asset('uploads/localisation/default_localisation.jpg') %}
+		{% if d.itinerairecoop.itineraire.destination.photo != '' %}
+			{% set url = asset('uploads/localisation/'~d.itinerairecoop.itineraire.destination.photo) %}
+		{% endif %}
+		<div class="c-i-baniere" style="background:url({{ url }}) center no-repeat; background-size: cover;">
+			<div class="c-i-baniere-bg-opacity">
+				<div class="c-i-baniere-destination">
+					{{ d.itinerairecoop.itineraire.depart~' - '~d.itinerairecoop.itineraire.destination }}
+				</div>
+				<div class="c-i-baniere-details">
+					<div class="c-i-baniere-details-heure">
+						Heure depart	
+						<div class="c-i-heure">{{ d.heure|date('h:m') }}H</div>
+					</div>
+					<div class="c-i-baniere-details-place">
+						{{ d.itinerairecoop.place }}	
+						<div class="c-i-price">{{ d.itinerairecoop.prix }} Ar</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="c-i-body">
+			<div class="c-i-body-content">
+				<table class="c-i-body-content-table">
+
+
+					{% set i = 0 %}
+                    {% set j = 0 %}
+					
+					<tbody>
+                        {% for e in d.places %}
+                            <tr>
+                            {% for result in e %}
+                                {% if i==0 and j== 0%}
+                                    <td><div class="chauffeur"></div></td>
+                                {% else %}
+                                	{% if result == 2 %}
+                                    	<td><div class="place-reserve"></div></td>
+                                	{% else %}
+                                		{% if result == 1 %}
+                                    		<td><div class="place-disponible"></div></td>
+                                		{% else %}
+                                			<td></td>
+                                		{% endif %}
+                                	{% endif %}
+                            	{% endif %}
+                        	{% set j = j+1 %}
+                        	{% endfor %}
+                                
+                        {% endfor %}
+
+					</tbody>
+				</table>
+
+					<a href="{{ path('paiement_log_out', { 'id': d.id }) }}"><input type="submit" name="" class="card-itineraire-button" value="Selectionner"></a>
+								<br /> {{ d.placerestante}} places disponibles
+			</div>
+		</div>
+	</div>
+<!---------------------------------------end Card----------------------------------------->
+		{% endfor %}
+	{% else %}
+		<div class="no-result">		
+		Pas de resultat pour le moment.
+		</div>
+	{% endif %}
+</div>
+	<!-----------------------------Body 1------------------------------------>
+
+	
+	<script type="text/javascript" src="{{ asset('user_assets/js/jquery-3.4.1.min.js') }}"></script>
+	<script type="text/javascript" src="{{ asset('user_assets/js/script.js') }}"></script>
+	<script type="text/javascript" src="{{ asset('user_assets/js/script-number.js') }}"></script>
+	<script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+    <script src="{{ path('fos_js_routing_js', {"callback": "fos.Router.setData"}) }}"></script>
+	<script type="text/javascript" src="{{ asset('user_assets/js/search-script.js') }}"></script>
+</html>

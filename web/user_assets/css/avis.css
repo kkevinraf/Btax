@@ -1,0 +1,363 @@
+.content-avis
+{
+	min-height: 400px;
+	height: auto;
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	padding-top: 12px;
+}
+
+.left-content-avis
+{
+	width: 100%;
+	min-height: 300px;
+	height: auto;
+	max-height: 410px;
+	background-color: #fff;
+	border-radius: 9px;
+	margin-bottom: 10px;
+}
+
+.right-content-avis
+{
+	width: 100%;
+	min-height: 200px;
+	height: auto;
+	background-color: #fff;
+}
+
+.logo-cooperative-avis
+{
+	padding-top: 40px;
+	width: 130px;
+	height: 130px;
+	margin: auto;
+}
+
+.logo-cooperative-avis-img
+{
+	width: 130px;
+	height: 130px;
+	border-radius: 100%;
+}
+
+.content-cooperative-botom
+{
+	height: 100px;
+}
+
+.content-cooperative-avis
+{
+	width: 130px;
+	margin: auto;
+}
+
+
+.content-cooperative-avis
+{
+	padding-top: 10px;
+	width: 90%;
+	margin: auto;
+	height: 20px;
+	text-align: center;
+}
+
+.cooperative-name
+{
+	font-weight: bold;
+	font-size: 18px;
+}
+
+.card-cooperative-star
+{
+	width: 150px;
+	height: auto;
+	margin: auto;
+	margin-top: 5px;
+	display: block;
+}
+
+.content-cooperative-botom
+{
+	margin-top: 50px;
+}
+
+
+
+
+.card-cooperative-contact
+{
+	height: 100px;
+}
+
+.card-cooperative-contact-g
+{
+	width: 89%;
+	height: 100%;
+	margin: auto;
+	display: flex;
+	flex-wrap: nowrap;
+}
+
+.card-cooperative-contact-g-tw, .card-cooperative-contact-g-fb, .card-cooperative-contact-g-insta, .card-cooperative-contact-g-mail
+{
+	width: 24%;
+	height: 100%;
+}
+
+.card-cooperative-contact-g-tw
+{
+	background: url(img/twiter.png);
+	background-size: 50px;
+	background-repeat: no-repeat;
+	background-position: center;
+	cursor: pointer;
+}
+
+.card-cooperative-contact-g-tw:hover
+{
+	background: url(img/twiter-active.png);
+	background-size: 50px;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+.card-cooperative-contact-g-fb
+{
+	background: url(img/facebook.png);
+	background-size: 50px;
+	background-repeat: no-repeat;
+	background-position: center;
+	cursor: pointer;
+}
+
+.card-cooperative-contact-g-fb:hover
+{
+	background: url(img/facebook-active.png);
+	background-size: 50px;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+.card-cooperative-contact-g-insta
+{
+	background: url(img/insta.png);
+	background-size: 50px;
+	background-repeat: no-repeat;
+	background-position: center;
+	cursor: pointer;
+}
+
+.card-cooperative-contact-g-insta:hover
+{
+	background: url(img/insta-active.png);
+	background-size: 50px;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+.card-cooperative-contact-g-mail
+{
+	background: url(img/mail.png);
+	background-size: 50px;
+	background-repeat: no-repeat;
+	background-position: center;
+	cursor: pointer;
+}
+
+.card-cooperative-contact-g-mail:hover
+{
+	background: url(img/mail-active.png);
+	background-size: 50px;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+.card-cooperative-body-link
+{
+	font-size: 18px;
+	font-weight: 510px;
+	text-decoration: none;
+	color: #04091d;
+}
+
+.card-cooperative-body-link:hover
+{
+	color: #fac202;
+}
+
+.avis-title
+{
+	padding-top: 13px;
+	width: 96%;
+	height: 30px;
+	border-bottom: 2px solid #FAC202;
+	margin: auto;
+	font-weight: bold;
+	font-size: 18px;
+}
+
+.avis-body
+{
+	height: auto;
+	width: 100%;
+	background-color: #fff;
+}
+
+.avis-body-comment
+{
+	height: auto;
+	width: 96%;
+	margin: auto;
+}
+
+.avis-body-comment-block
+{
+	display: flex;
+	flex-wrap: wrap;
+	margin-top: 9px;
+	margin-bottom: 10px;
+}
+
+.picture-member
+{
+	height: 60px;
+	width: 60px;
+}
+
+.picture-member-img
+{
+	background-color: #FAC202;
+	border-radius: 50%;
+	text-align: center;
+    margin: auto;
+    font-weight: bold;
+    font-size: 20px;
+    color: #fff;
+    line-height: 60px
+}
+
+.comment-member
+{
+	width: calc(100% - 65px);
+	margin-left: 4px;
+	min-height: 60px;
+	height: auto;
+	background-color: rgba(255, 255, 170, .8);
+	border-top-right-radius: 10px;
+	border-bottom-right-radius: 10px;
+	border-bottom-left-radius: 10px;
+}
+
+.name-comment-member
+{
+	height: 12px;
+	font-size: 15px;
+	font-weight: bold;
+	padding-left: 10px;
+	padding-top: 5px;
+}
+
+.content-comment-member
+{
+	padding: 10px 0 7px 10px;
+	font-size: 15px;
+}
+
+.content-form-comment-member
+{
+	height: auto;
+	padding: 10px 0 7px 10px;
+}
+
+.comment-form
+{
+	width: 100%;
+	max-height: 90px;
+}
+
+.comment-member-form
+{
+	width: calc(100% - 65px);
+}
+
+.avis-body-form-comment-block
+{
+	width: 100%;
+	margin: auto;
+	min-height: 140px;
+	height: auto;
+	display: flex;
+	flex-wrap: nowrap;
+	margin-top: 9px;
+}
+
+.btn-send
+{
+	width: 120px;
+	height: 30px;
+	background-color: #FAC202;
+	color: #fff;
+	border: 1px solid #FAC202;
+	border-radius: 5px;
+}
+
+.comment-form
+{
+	border: 1px solid #FAC202;
+	border-radius: 5px;
+	height: 300px;
+	margin-top: 7px;
+}
+
+.comment-form-footer
+{
+	width: 100%;
+	height: 50px;
+	text-align: right;
+}
+
+.note-member
+{
+	height: 30px;
+	width: 90%;
+	margin-left: 5px;
+	margin-top: 16px;
+	margin-bottom: -10px;
+}
+
+.note_by_member
+{
+	margin: 10px 0 0 7px;
+	width: 90%;
+	height: 30px;
+	background-color: rgba(255, 255, 170, .8);
+}
+
+.message-avis
+{
+	width: 90%;
+	min-height: 40px;
+	height: auto;
+	background: #f1bfbf;
+	margin: 10px auto;
+	text-align: center;
+	line-height: 40px;
+	border-radius: 10px;
+}
+
+@media only screen and (min-width: 830px)
+{
+
+	.left-content-avis
+	{
+		width: 300px;
+		margin-right: 5px;
+	}
+
+	.right-content-avis
+	{
+		width: calc(100% - 310px);
+	}
+}
